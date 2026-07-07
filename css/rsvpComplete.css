@@ -1,0 +1,57 @@
+body{
+    margin:0;
+    font-family: "Yu Gothic", sans-serif;
+    background:#faf8f5;
+    color:#555;
+}
+
+.complete{
+    max-width:600px;
+    margin:auto;
+    min-height:100vh;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    padding:40px;
+    text-align:center;
+}
+
+.complete h1{
+    font-family:"Great Vibes", cursive;
+    font-size:4rem;
+    color:#d8b46a;
+    margin-bottom:10px;
+}
+
+.complete h2{
+    font-size:1.8rem;
+    margin-bottom:30px;
+}
+
+.complete p{
+    line-height:2;
+    margin-bottom:50px;
+    color:#777;
+}
+
+.home-button{
+    display:inline-block;
+    padding:15px 40px;
+
+    border-radius:999px;
+    background:#d8b46a;
+
+    color:white;
+    text-decoration:none;
+    font-size:16px;
+
+    transition:.3s;
+}
+
+.home-button:hover{
+    opacity:.85;
+    transform:translateY(-2px);
+}

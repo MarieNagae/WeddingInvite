@@ -33,6 +33,16 @@ select{
     font-size: 16px;
 }
 
+
+input:focus,
+textarea:focus,
+select:focus{
+    outline: none;
+    border-color: #d8b46a;
+    box-shadow: 0 0 8px rgba(216, 180, 106, 0.3);
+}
+
+
 .row{
     display: flex;
     gap: 12px;
@@ -57,13 +67,30 @@ select{
 .radio {
     display: flex;
     align-items: center;
-    gap: 6px;
+    justify-content: center;
+    gap: 8px;
+
+    flex: 1;
+
+    padding: 12px;
+    margin: 0;
+
+    border: 1px solid #ddd;
+    border-radius: 10px;
+
     cursor: pointer;
 }
 
 .radio input {
     width: auto;
     margin: 0;
+    flex: none;
+}
+
+.radio-group label{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: normal;
 }
 
 
@@ -78,6 +105,21 @@ button{
     font-size: 16px;
     background: #d8b46a;
     color: white;
+}
+
+
+.back-link {
+    display: block;
+    margin-top: 20px;
+    text-align: left;
+    color: #888;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.back-link:hover {
+    color: #d8b46a;
 }
 
 #companionArea{

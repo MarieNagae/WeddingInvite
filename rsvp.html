@@ -14,45 +14,64 @@
     </head>
 
     <body>
+        <form id="rsvpForm">
+            <section class="rsvp">
+                
+                <a href="index.html" id="backLink" class="back-link">
+                    ← 戻る
+                </a>
 
-        <section class="rsvp">
-            <h2>RSVP</h2>
+                <h2>RSVP</h2>
 
-            <p class="description">
-                ご出欠のご回答をお願いいたします。
-            </p>
+                <p class="description">
+                    ご出欠のご回答をお願いいたします。
+                </p>
 
-            <form id="rscpForm">
                 <label>お名前</label>
                 <div class="row">
-                    <input type="text" placeholder="姓">
-                    <input type="text" placeholder="名">
+                    <input type="text" placeholder="姓" name="lastName">
+                    <input type="text" placeholder="名" name="firstName">
                 </div>
 
                 <label>フリガナ</label>
                 <div class="row">
-                    <input type="text" placeholder="セイ">
-                    <input type="text" placeholder="メイ">
+                    <input type="text" placeholder="セイ" name="lastNameKana">
+                    <input type="text" placeholder="メイ" name="firstNameKana">
                 </div>
                 
                 <label>電話番号(ハイフンなし)</label>
-                <input type="tel" placeholder="08012345678">
+                <input type="tel" placeholder="08012345678" name="tell">
+                
+                <label>メールアドレス</label>
+                <input type="text" placeholder="nnn@xxx.com" name="mail">
                 
                 <label>ご出欠</label>
                 <div class="radio-group">
-                    <label><input type="radio" name="attendance" value="attend">出席</label>
-                    <label><input type="radio" name="attendance" value="absent">欠席</label>
+                    <label class="radio">
+                        <input type="radio" name="attendance" value="attend">
+                        出席
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="attendance" value="absent">
+                        欠席
+                    </label>
                 </div>
 
                 
                 <label>新郎側・新婦側</label>
                 <div class="radio-group">
-                    <label><input type="radio" name="side" value="groom">新郎側</label>
-                    <label><input type="radio" name="side" value="bride">新婦側</label>
+                    <label class="radio">
+                        <input type="radio" name="side" value="groom">
+                        新郎側
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="side" value="bride">
+                        新婦側
+                    </label>
                 </div>
                 
                 <label>続柄</label>
-                <select>
+                <select name="relation">
                     <option>家族・親戚</option>
                     <option>友人(小学校)</option>
                     <option>友人(中学校)</option>
@@ -63,42 +82,47 @@
                 </select>
                 
                 <label>アレルギー</label>
-                <textarea rows="3"></textarea>
+                <textarea rows="3" name="allergy"></textarea>
                 
                 <label class="checkbox">
-                    <input type="checkbox" id="companionCheck">
+                    <input type="checkbox" id="companionCheck" name="companion">
                     同伴者（1人まで同伴可。同伴者のいるときはチェックしてください。）
                 </label>
                 
                 <div id="companionArea">
                     <label>同伴者氏名</label>
                     <div class="row">
-                        <input type="text" placeholder="姓">
-                        <input type="text" placeholder="名">
+                        <input type="text" placeholder="姓" name="compLastName">
+                        <input type="text" placeholder="名" name="compFirstName">
                     </div>
 
                     <div class="row">
-                        <input type="text" placeholder="セイ">
-                        <input type="text" placeholder="メイ">
+                        <input type="text" placeholder="セイ" name="compLastNameKana">
+                        <input type="text" placeholder="メイ" name="compFirstNameKana">
                     </div>
                     
                 <label>同伴者アレルギー</label>
-                <textarea rows="3"></textarea>
+                <textarea rows="3" name="compAllergy"></textarea>
                 </div>
 
+                <label>備考</label>
+                <textarea rows="5" name="others"></textarea>
+
                 <label>メッセージ</label>
-                <textarea rows="5"></textarea>
+                <textarea rows="5" name="Message"></textarea>
 
                 
-                <button type="submit">
+                <button type="submit" id="submitButton">
                     回答する
                 </button>
-            </form>
-        </section>
 
-
+                <a href="index.html" id="backLink" class="back-link">
+                    ← 戻る
+                </a>
+            </section>
         
-        <script src="js/rsvp.js"></script>
+        </form>
+        <script type="module" src="js/rsvp.js"></script>
     </body>
 
 </html>
