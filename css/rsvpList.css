@@ -1,0 +1,23 @@
+body{
+    margin:40px;
+    font-family:sans-serif;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    border:1px solid #ddd;
+    padding:12px;
+}
+
+th{
+    background:#d8b46a;
+    color:white;
+}
+
+tr:nth-child(even){
+    background:#fafafa;
+}
