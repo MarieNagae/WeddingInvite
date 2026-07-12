@@ -17,7 +17,17 @@ async function loadGuests() {
                 <td>${data.attendance == "attend" ? "〇" : "×"}</td>
                 <td>${data.side == "groom" ? "新郎側" : "新婦側"}</td>
                 <td>${data.relation}</td>
+                <td>${data.address}</td>
                 <td>${data.tell}</td>
+                <td>${data.mail}</td>
+                <td>${data.allergy ?? ""}</td>
+                <td>${data.companion ? "あり" : "なし"}</td>
+                <td>${data.compLastName} ${data.compFirstName}</td>
+                <td>${data.compAllergy}</td>
+                <td>${data.companion ? data.compAddress : ""}</td>
+                <td>${data.others}</td>
+                <td>${data.Message}</td>
+                <td>${data.updateAt}</td>
             </tr>
         `;
     });

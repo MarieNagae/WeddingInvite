@@ -14,7 +14,6 @@ check.addEventListener("change", ()=>{
 
 //回答ボタン押下
 form.addEventListener("submit", async (e) => {
-    console.log("submitイベント開始");
     e.preventDefault();
 
     //登録確認
