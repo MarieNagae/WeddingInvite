@@ -23,6 +23,7 @@ form.addEventListener("submit", async (e) => {
 
     const submitButton = document.getElementById("submitButton");
     const formData = Object.fromEntries(new FormData(form));
+    const updateAt = new Date().toLocaleString("ja-JP");
 
     //連打抑止
     submitButton.disabled = true;
@@ -32,7 +33,7 @@ form.addEventListener("submit", async (e) => {
     try {
         await addDoc(collection(db, "rsvp"), {
             ...formData,
-            updateAt: new Date()
+            updateAt: updateAt
         });
         
         window.location.href = "rsvpComplete.html";
