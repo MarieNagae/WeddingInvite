@@ -1,13 +1,119 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="Width=device-wedth, initial-scale=1.0">
-        <title>Wedding Inviation</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <body>
-        <h1>アクセス</h1>
-    </body>
+    <title>Access</title>
 
+    <link rel="stylesheet" href="css/access.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+    <div class="hero">
+        <img src="images/access/hero.jpg" alt="Notre Dame KOBE">
+        <div class="hero-overlay">
+            <h1>Access</h1>
+            <p class="subtitle">会場へのご案内</p>
+        </div>
+    </div>
+
+
+    <!-- 会場 -->
+    <div class="card">
+
+        <h2>Notre Dame KOBE</h2>
+
+        <p>
+            〒650-0042<br>
+            兵庫県神戸市中央区波止場町7-3
+        </p>
+
+    </div>
+
+    <!-- MAP -->
+    <div class="card">
+
+        <iframe
+            src="https://www.google.com/maps?q=ノートルダム神戸&output=embed"
+            loading="lazy">
+        </iframe>
+
+        <a class="button"
+           href="https://www.google.com/maps/search/?api=1&query=ノートルダム神戸"
+           target="_blank">
+
+            <i class="fa-solid fa-location-dot"></i>
+            Google Mapで開く
+
+        </a>
+
+    </div>
+
+    <!-- 電車 -->
+    <div class="card">
+
+        <h3>
+            <i class="fa-solid fa-train"></i>
+            電車でお越しの方
+        </h3>
+
+        <ul>
+            <li>JR三ノ宮駅より徒歩約15分</li>
+            <li>タクシー約5分</li>
+        </ul>
+
+    </div>
+
+    <!-- 車 -->
+    <div class="card">
+
+        <h3>
+            <i class="fa-solid fa-car"></i>
+            お車でお越しの方
+        </h3>
+
+        <ul>
+            <li>駐車場をご利用いただけます。</li>
+            <li>満車の場合は近隣駐車場をご利用ください。</li>
+        </ul>
+
+    </div>
+
+    <!-- ご案内 -->
+    <div class="card">
+
+        <h3>
+            <i class="fa-solid fa-heart"></i>
+            ご案内
+        </h3>
+
+        <p>
+            挙式開始15分前までに<br>
+            ご来館いただけますと幸いです。
+        </p>
+
+    </div>
+
+    <!-- ボタン -->
+
+    <a class="routeButton"
+       href="https://www.google.com/maps/dir/?api=1&destination=ノートルダム神戸"
+       target="_blank">
+
+        <i class="fa-solid fa-route"></i>
+
+        現在地からルート検索
+
+    </a>
+
+</div>
+
+</body>
 </html>
