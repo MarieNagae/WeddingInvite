@@ -184,3 +184,15 @@ i{
 
     margin-right:8px;
 }
+
+
+
+.back-link {
+    display: block;
+    margin-top: 20px;
+    text-align: left;
+    color: #888;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
