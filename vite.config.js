@@ -8,7 +8,8 @@ export default defineConfig({
         rsvp: "rsvp.html",
         complete: "rsvpComplete.html",
         rsvpList: "rsvpList.html",
-        access:"access.html"
+        access:"access.html",
+        facility:"facility.html"
       }
     }
   }
