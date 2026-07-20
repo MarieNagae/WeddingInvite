@@ -7,7 +7,8 @@ export default defineConfig({
         main: "index.html",
         rsvp: "rsvp.html",
         complete: "rsvpComplete.html",
-        rsvpList: "rsvpList.html"
+        rsvpList: "rsvpList.html",
+        access:"access.html"
       }
     }
   }
