@@ -85,7 +85,125 @@
 
             <!--スケジュール-->
             <section class="section">
-                <h2 class="section-title">Schedule</h2>
+
+                <section class="schedule">
+
+                    <h2 class="section-title">Schedule</h2>
+
+                    <div class="timeline">
+
+                        <div class="timeline-item">
+                            <div class="time">12:30</div>
+
+                            <div class="line">
+                                <span class="circle"></span>
+                            </div>
+
+                            <div class="content">
+                                <h3>Ceremony</h3>
+                                <p>挙式</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="time">13:30</div>
+
+                            <div class="line">
+                                <span class="circle"></span>
+                            </div>
+
+                            <div class="content">
+                                <h3>Reception</h3>
+                                <p>披露宴</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="time">16:00</div>
+
+                            <div class="line">
+                                <span class="circle"></span>
+                            </div>
+
+                            <div class="content">
+                                <h3>Ending</h3>
+                                <p>お開き</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <section class="countdown">
+
+                    <h2 class="section-title">
+                        Countdown
+                    </h2>
+
+                    <div class="count-box">
+
+<!--
+                        <div class="flip-box">
+                            <div class="flip-card" id="days">
+                                <div class="top">000</div>
+                                <div class="bottom">000</div>
+                            </div>
+                            <p>Days</p>
+                        </div>
+
+                        
+                        <div class="flip-box">
+                            <div class="flip-card" id="hours">
+                                <div class="top">000</div>
+                                <div class="bottom">000</div>
+                            </div>
+                            <p>Hours</p>
+                        </div>
+                        
+                        <div class="flip-box">
+                            <div class="flip-card" id="minutes">
+                                <div class="top">000</div>
+                                <div class="bottom">000</div>
+                            </div>
+                            <p>Min</p>
+                        </div>
+
+                        
+                        <div class="flip-box">
+                            <div class="flip-card" id="seconds">
+                                <div class="top">000</div>
+                                <div class="bottom">000</div>
+                            </div>
+                            <p>Sec</p>
+                        </div>
+
+-->
+
+                        <div>
+                            <span id="days">0</span>
+                            <small>Days</small>
+                        </div>
+
+                        <div>
+                            <span id="hours">0</span>
+                            <small>Hours</small>
+                        </div>
+
+                        <div>
+                            <span id="minutes">0</span>
+                            <small>Min</small>
+                        </div>
+
+                        <div>
+                            <span id="seconds">0</span>
+                            <small>Sec</small>
+                        </div>
+
+                    </div>
+
+                </section>
+
             </section>
             
             <!--各種ボタン-->
@@ -123,4 +241,8 @@
 
     <!--右サイド-->
     <aside class="side right"></aside>
+
+    
+    <!--JS-->
+    <script type="module" src="js/main.js"></script>
 </html>
