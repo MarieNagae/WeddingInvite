@@ -53,3 +53,58 @@ backLink.addEventListener("click", (e) => {
         e.preventDefault();
     }
 });
+
+
+
+//郵便番号検索
+const searchButton = document.getElementById("searchAddress");
+const compSearchButton = document.getElementById("compSearchAddress");
+
+//参加者住所
+searchButton.addEventListener("click", async () => {
+    const postalCode = document.getElementById("postalCode");
+    const address = document.getElementById("address");
+    searchAddress(postalCode, address);
+});
+
+//同伴者住所
+compSearchButton.addEventListener("click", async () => {
+    const postalCode = document.getElementById("compPostalCode");
+    const address = document.getElementById("compAddress");
+    searchAddress(postalCode, address);
+});
+
+
+async function searchAddress(postalCode, address){
+
+    // ハイフン,スペースを除去
+    const zip = postalCode.value.replace(/\D/g, "");
+
+    if (zip.length !== 7) {
+        alert("郵便番号は7桁で入力してください。");
+        return;
+    }
+
+    try {
+        const response = await fetch(
+            `https://zipcloud.ibsnet.co.jp/api/search?zipcode=${zip}`
+        );
+
+        const data = await response.json();
+
+        if (data.results) {
+            const result = data.results[0];
+
+            address.value =
+                result.address1 +
+                result.address2 +
+                result.address3;
+        } else {
+            alert("住所が見つかりませんでした。");
+        }
+
+    } catch (err) {
+        console.error(err);
+        alert("住所検索に失敗しました。");
+    }
+};
