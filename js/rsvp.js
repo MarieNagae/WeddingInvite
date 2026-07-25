@@ -2,15 +2,25 @@ import { db } from "./firebase.js";
 import { collection, addDoc } from "firebase/firestore"
 
 
-const check = document.getElementById("companionCheck");
-const area = document.getElementById("companionArea");
+const companionCheck = document.getElementById("companionCheck");
+const companionArea = document.getElementById("companionArea");
 const form = document.getElementById("rsvpForm");
-const backLink = document.getElementById("backLink");
+const backLinkTop = document.getElementById("backLinkTop");
+const backLinkBottom = document.getElementById("backLinkBottom");
+const compAddressSame = document.getElementById("compAddressSame");
+const compAddressArea = document.getElementById("compAddressArea");
 
 //同伴チェックボタン押下
-check.addEventListener("change", ()=>{
-    area.style.display = check.checked ? "block" : "none";
+companionCheck.addEventListener("change", ()=>{
+    companionArea.style.display = companionCheck.checked ? "block" : "none";
 });
+
+
+//同伴住所同上チェックボタン押下
+compAddressSame.addEventListener("change", ()=>{
+    compAddressArea.style.display = !compAddressSame.checked ? "block" : "none";
+});
+
 
 //回答ボタン押下
 form.addEventListener("submit", async (e) => {
@@ -41,13 +51,19 @@ form.addEventListener("submit", async (e) => {
         console.error(err);
         alert("Firestore登録失敗");
 
-        button.disabled = false;
-        button.textContent = "回答する";
+        submitButton.disabled = false;
+        submitButton.textContent = "回答する";
     }
 });
 
 //戻るボタン押下
-backLink.addEventListener("click", (e) => {
+backLinkTop.addEventListener("click", (e) => {
+    // 確認ダイアログ
+    if (!confirm("入力内容は保存されません。\nホーム画面へ戻りますか？")) {    
+        e.preventDefault();
+    }
+});
+backLinkBottom.addEventListener("click", (e) => {
     // 確認ダイアログ
     if (!confirm("入力内容は保存されません。\nホーム画面へ戻りますか？")) {    
         e.preventDefault();
@@ -74,7 +90,7 @@ compSearchButton.addEventListener("click", async () => {
     searchAddress(postalCode, address);
 });
 
-
+//住所検索
 async function searchAddress(postalCode, address){
 
     // ハイフン,スペースを除去
@@ -108,3 +124,42 @@ async function searchAddress(postalCode, address){
         alert("住所検索に失敗しました。");
     }
 };
+
+
+//入力制限
+const rules = {
+    digitsOnly: value => value.replace(/\D/g, ""),
+    removeControlChars: value => value.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, ""),
+    kanaOnly: value => value.replace(/[^\u3041-\u3096ーA-Za-zＡ-Ｚａ-ｚ\s　]/g, ""),
+    nameOnly: value => value.replace(/[^A-Za-zＡ-Ｚａ-ｚ\p{sc=Han}\p{sc=Hiragana}\p{sc=Katakana}\s　ー・]/gu,""),
+    email: value => value.trim().replace(/\u3000/g, ""),
+    trim: value => value.trim()
+};
+
+function setInputRestriction(element, ruleKeys, maxLength) {
+    element.addEventListener("input", () => {
+        let value = element.value;
+
+        for (const key of ruleKeys) {
+            value = rules[key](value);
+        }
+
+        if (maxLength) {
+            value = value.slice(0, maxLength);
+        }
+
+        element.value = value;
+    });
+}
+
+document.querySelectorAll("[data-rules]").forEach(element => {
+    const ruleKeys = element.dataset.rules
+        .split(",")
+        .map(rule => rule.trim());
+
+    const maxLength =
+        element.maxLength > 0 ? element.maxLength : undefined;
+
+    setInputRestriction(element, ruleKeys, maxLength);
+});
+

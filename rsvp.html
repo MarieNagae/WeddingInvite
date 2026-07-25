@@ -17,7 +17,7 @@
         <form id="rsvpForm"  class="h-adr">
             <section class="rsvp">
                 
-                <a href="index.html" id="backLink" class="back-link">
+                <a href="index.html" id="backLinkTop" class="back-link">
                     ← 戻る
                 </a>
 
@@ -29,21 +29,21 @@
 
                 <label>お名前</label>
                 <div class="row">
-                    <input type="text" placeholder="姓" name="lastName">
-                    <input type="text" placeholder="名" name="firstName">
+                    <input type="text" placeholder="姓" id="lastName" name="lastName" maxlength="20"  data-rules="nameOnly,trim" required>
+                    <input type="text" placeholder="名" id="firstName" name="firstName" maxlength="20" data-rules="nameOnly,trim" required>
                 </div>
 
                 <label>フリガナ</label>
                 <div class="row">
-                    <input type="text" placeholder="セイ" name="lastNameKana">
-                    <input type="text" placeholder="メイ" name="firstNameKana">
+                    <input type="text" placeholder="セイ" id="lastNameKana" name="lastNameKana" maxlength="20" data-rules="kanaOnly,trim" required>
+                    <input type="text" placeholder="メイ" id="firstNameKana" name="firstNameKana" maxlength="20" data-rules="kanaOnly,trim" required>
                 </div>
                 
                 <label>電話番号(ハイフンなし)</label>
-                <input type="tel" placeholder="08012345678" name="tell">
+                <input type="tel" placeholder="08012345678" inputmode="numeric" id="tell" name="tell" maxlength="11" data-rules="digitsOnly" required>
                 
                 <label>メールアドレス</label>
-                <input type="text" placeholder="nnn@xxx.com" name="mail">
+                <input type="email" placeholder="nnn@xxx.com" name="mail" autocomplete="email" maxlength="254"  data-rules="email" required>
                 
                 <label>ご出欠</label>
                 <div class="radio-group">
@@ -87,7 +87,8 @@
                     <input
                         type="text"
                         id="postalCode"
-                        placeholder="650-0046">
+                        placeholder="650-0046"
+                        required>
 
                     <button type="button" id="searchAddress"  class="search-btn">
                         住所検索
@@ -100,70 +101,81 @@
                     type="text"
                     id="address"
                     name="address"
-                    placeholder="住所">
+                    placeholder="住所"
+                    required>
 
                 <label>住所（番地以降）</label>
                 <input
                     type="text"
                     id="building"
                     name="building"
-                    placeholder="建物名">
+                    placeholder="建物名"
+                    required>
 
 
                 <label>アレルギー</label>
-                <textarea rows="3" name="allergy"></textarea>
+                <textarea rows="3" id="allergy" name="allergy" maxlength="200" data-rules="removeControlChars"></textarea>
                 
                 <label class="checkbox">
                     <input type="checkbox" id="companionCheck" name="companion">
                     同伴者（1人まで同伴可。同伴者のいるときはチェックしてください。）
                 </label>
                 
-                <div id="companionArea">
+                <div id="companionArea" class="companion-card">
+
+                    <h3>👥 同伴者様情報</h3>
                     <label>同伴者氏名</label>
                     <div class="row">
-                        <input type="text" placeholder="姓" name="compLastName">
-                        <input type="text" placeholder="名" name="compFirstName">
+                        <input type="text" placeholder="姓" id="compLastName" name="compLastName" maxlength="20" data-rules="nameOnly,trim" required>
+                        <input type="text" placeholder="名" id="compFirstName" name="compFirstName" maxlength="20" data-rules="nameOnly,trim" required>
                     </div>
 
                     <div class="row">
-                        <input type="text" placeholder="セイ" name="compLastNameKana">
-                        <input type="text" placeholder="メイ" name="compFirstNameKana">
+                        <input type="text" placeholder="セイ" id="compLastNameKana" name="compLastNameKana" maxlength="20" data-rules="kanaOnly,trim" required>
+                        <input type="text" placeholder="メイ" id="compFirstNameKana" name="compFirstNameKana" maxlength="20" data-rules="kanaOnly,trim" required>
                     </div>
                     
                     <label>同伴者アレルギー</label>
-                    <textarea rows="3" name="compAllergy"></textarea>
+                    <textarea rows="3" id="compAllergy" name="compAllergy" maxlength="200" data-rules="removeControlChars" required></textarea>
 
-                    <span class="p-country-name" style="display:none;">Japan</span>
-                    <label>郵便番号</label>
-                    <div class="postal-row">
+                    <label class="checkbox">
+                        <input type="checkbox" id="compAddressSame" name="compAddressSame">
+                        住所　同上
+                    </label>
+
+                    <div id="compAddressArea">
+                        <label>郵便番号</label>
+                        <div class="postal-row">
+                            <input
+                                type="text"
+                                id="compPostalCode"
+                                placeholder="650-0024"
+                                required>
+
+                            <button type="button" id="compSearchAddress"  class="search-btn">
+                                住所検索
+                            </button>
+                        </div>
+
+                        
+                        <label>住所（都道府県・市区町村）</label>
                         <input
                             type="text"
-                            id="compPostalCode"
-                            placeholder="650-0046">
+                            id="compAddress"
+                            name="address"
+                            placeholder="住所">
 
-                        <button type="button" id="compSearchAddress"  class="search-btn">
-                            住所検索
-                        </button>
+                        <label>住所（番地以降）</label>
+                        <input
+                            type="text"
+                            id="compBuilding"
+                            name="building"
+                            placeholder="建物名">
                     </div>
-
-                    
-                    <label>住所（都道府県・市区町村）</label>
-                    <input
-                        type="text"
-                        id="compAddress"
-                        name="address"
-                        placeholder="住所">
-
-                    <label>住所（番地以降）</label>
-                    <input
-                        type="text"
-                        id="compBuilding"
-                        name="building"
-                        placeholder="建物名">
                 </div>
 
                 <label>備考</label>
-                <textarea rows="5" name="others"></textarea>
+                <textarea rows="5" id="others" name="others" maxlength="500" data-rules="removeControlChars" required></textarea>
 
                 <label>メッセージ</label>
                 <textarea rows="5" name="Message"></textarea>
@@ -173,7 +185,7 @@
                     回答する
                 </button>
 
-                <a href="index.html" id="backLink" class="back-link">
+                <a href="index.html" id="backLinkBottom" class="back-link">
                     ← 戻る
                 </a>
             </section>

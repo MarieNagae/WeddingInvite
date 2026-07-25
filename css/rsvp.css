@@ -143,3 +143,40 @@ select:focus{
     font-size:14px;
     cursor:pointer;
 }
+
+
+.companion-card{
+    margin-top: 24px;
+    padding: 20px;
+    background: #fcfcfc;
+    border-left: 5px solid #c7a17a;
+    border-radius: 8px;
+}
+
+.companion-card h3{
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 18px;
+    color: #8b6b5a;
+}
+
+#companionArea{
+    animation: fadeIn .3s ease;
+}
+
+#compAddressArea{
+    animation: fadeIn .3s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(-10px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+
