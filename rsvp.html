@@ -27,25 +27,25 @@
                     ご出欠のご回答をお願いいたします。
                 </p>
 
-                <label>お名前</label>
+                <label>お名前<a class="red-text">*</a></label>
                 <div class="row">
                     <input type="text" placeholder="姓" id="lastName" name="lastName" maxlength="20"  data-rules="nameOnly,trim" required>
                     <input type="text" placeholder="名" id="firstName" name="firstName" maxlength="20" data-rules="nameOnly,trim" required>
                 </div>
 
-                <label>フリガナ</label>
+                <label>ふりがな<a class="red-text">*</a></label>
                 <div class="row">
-                    <input type="text" placeholder="セイ" id="lastNameKana" name="lastNameKana" maxlength="20" data-rules="kanaOnly,trim" required>
-                    <input type="text" placeholder="メイ" id="firstNameKana" name="firstNameKana" maxlength="20" data-rules="kanaOnly,trim" required>
+                    <input type="text" placeholder="せい" id="lastNameKana" name="lastNameKana" maxlength="20" data-rules="kanaOnly,trim" required>
+                    <input type="text" placeholder="めい" id="firstNameKana" name="firstNameKana" maxlength="20" data-rules="kanaOnly,trim" required>
                 </div>
                 
-                <label>電話番号(ハイフンなし)</label>
+                <label>電話番号(ハイフンなし)<a class="red-text">*</a></label>
                 <input type="tel" placeholder="08012345678" inputmode="numeric" id="tell" name="tell" maxlength="11" data-rules="digitsOnly" required>
                 
-                <label>メールアドレス</label>
+                <label>メールアドレス<a class="red-text">*</a></label>
                 <input type="email" placeholder="nnn@xxx.com" name="mail" autocomplete="email" maxlength="254"  data-rules="email" required>
                 
-                <label>ご出欠</label>
+                <label>ご出欠<a class="red-text">*</a></label>
                 <div class="radio-group">
                     <label class="radio">
                         <input type="radio" name="attendance" value="attend" checked>
@@ -58,7 +58,7 @@
                 </div>
 
                 
-                <label>新郎側・新婦側</label>
+                <label>新郎側・新婦側<a class="red-text">*</a></label>
                 <div class="radio-group">
                     <label class="radio">
                         <input type="radio" name="side" value="groom" checked>
@@ -70,7 +70,7 @@
                     </label>
                 </div>
                 
-                <label>続柄</label>
+                <label>続柄<a class="red-text">*</a></label>
                 <select name="relation">
                     <option>家族・親戚</option>
                     <option>友人(小学校)</option>
@@ -82,7 +82,7 @@
                 </select>
                 
                 <span class="p-country-name" style="display:none;">Japan</span>
-                <label>郵便番号</label>
+                <label>郵便番号<a class="red-text">*</a></label>
                 <div class="postal-row">
                     <input
                         type="text"
@@ -96,7 +96,7 @@
                 </div>
 
                 
-                <label>住所（都道府県・市区町村）</label>
+                <label>住所（都道府県・市区町村）<a class="red-text">*</a></label>
                 <input
                     type="text"
                     id="address"
@@ -131,8 +131,8 @@
                     </div>
 
                     <div class="row">
-                        <input type="text" placeholder="セイ" id="compLastNameKana" name="compLastNameKana" maxlength="20" data-rules="kanaOnly,trim" required>
-                        <input type="text" placeholder="メイ" id="compFirstNameKana" name="compFirstNameKana" maxlength="20" data-rules="kanaOnly,trim" required>
+                        <input type="text" placeholder="せい" id="compLastNameKana" name="compLastNameKana" maxlength="20" data-rules="kanaOnly,trim" required>
+                        <input type="text" placeholder="めい" id="compFirstNameKana" name="compFirstNameKana" maxlength="20" data-rules="kanaOnly,trim" required>
                     </div>
                     
                     <label>同伴者アレルギー</label>
@@ -140,7 +140,7 @@
 
                     <label class="checkbox">
                         <input type="checkbox" id="compAddressSame" name="compAddressSame">
-                        住所　同上
+                        住所 同上
                     </label>
 
                     <div id="compAddressArea">

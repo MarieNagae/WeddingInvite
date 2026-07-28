@@ -48,6 +48,10 @@ select:focus{
     gap: 12px;
 }
 
+.red-text{
+    color: red;
+}
+
 .checkbox{
     display: flex;
     align-items: center;

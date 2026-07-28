@@ -130,8 +130,8 @@ async function searchAddress(postalCode, address){
 const rules = {
     digitsOnly: value => value.replace(/\D/g, ""),
     removeControlChars: value => value.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, ""),
-    kanaOnly: value => value.replace(/[^\u3041-\u3096ーA-Za-zＡ-Ｚａ-ｚ\s　]/g, ""),
-    nameOnly: value => value.replace(/[^A-Za-zＡ-Ｚａ-ｚ\p{sc=Han}\p{sc=Hiragana}\p{sc=Katakana}\s　ー・]/gu,""),
+    kanaOnly: value => value.replace(/[^\u3041-\u3096ー]/g, ""),
+    nameOnly: value => value.replace(/[^\p{sc=Han}\p{sc=Hiragana}\p{sc=Katakana}\s　ー・]/gu,""),
     email: value => value.trim().replace(/\u3000/g, ""),
     trim: value => value.trim()
 };
