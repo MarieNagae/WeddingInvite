@@ -50,9 +50,9 @@ const gallery = document.querySelector(".gallery-container");
 function startDrag(x) {
 
     dragging = true;
-    startX = e.clientX;
+    startX = x.clientX;
 
-    gallery.setPointerCapture(e.pointerId);
+    gallery.setPointerCapture(x.pointerId);
 
 }
 
@@ -60,18 +60,15 @@ function moveDrag(x){
 
     if (!dragging) return;
 
-    currentX = e.clientX - startX;
+    currentX = x.clientX - startX;
 
     gallery.style.transform = `translateX(${currentX}px)`;
 
 }
 
 function endDrag() {
-
     if (!dragging) return;
-
     dragging = false;
-
     if (currentX < -80) {
         next();
     }
@@ -80,16 +77,23 @@ function endDrag() {
     }
 
     gallery.style.transform = "";
-
 }
 
 gallery.addEventListener("pointerdown", startDrag);
 gallery.addEventListener("pointermove", moveDrag);
 gallery.addEventListener("pointerup", endDrag);
 
-gallery.addEventListener("touchstart", startDragTouch);
-gallery.addEventListener("touchmove", moveDragTouch);
-gallery.addEventListener("touchend", endDragTouch);
+gallery.addEventListener("touchstart", (e) => {
+    startDrag(e.touches[0].clientX);
+});
+
+gallery.addEventListener("touchmove", (e) => {
+    moveDrag(e.touches[0].clientX);
+});
+
+gallery.addEventListener("touchend", () => {
+    endDrag();
+});
 
 
 
