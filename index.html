@@ -79,18 +79,74 @@
             </section>
             
             <!--Photo Gallery-->
-            <section class="section">
+            <section class="gallery">
                 <h2 class="section-title">Photo Gallery</h2>
+                <div class="gallery-wrapper">
+                    <button id="prevBtn" class="gallery-btn">&#10094;</button>
+                    <div class="gallery-container">
+                        <img id="leftImage" class="gallery-side">
+                        <img id="centerImage" class="gallery-center">
+                        <img id="rightImage" class="gallery-side">
+                    </div>
+                    <button id="nextBtn" class="gallery-btn">&#10095;</button>
+                </div>
             </section>
 
+            
             <!--スケジュール-->
             <section class="section">
 
-                <section class="schedule">
+                <section class="countdown">
 
                     <h2 class="section-title">Schedule</h2>
+                    <!--h2 class="section-title">Wedding Day</h2-->
+
+                    <p class="count-date">January 30, 2027</p>
+
+                    <div class="days-box">
+                        <span id="days">0</span>
+                        <p>Days</p>
+                    </div>
+
+                    <div class="time-box">
+
+                        <div>
+                            <span id="hours">0</span>
+                            <small>Hours</small>
+                        </div>
+
+                        <div>
+                            <span id="minutes">0</span>
+                            <small>Min</small>
+                        </div>
+
+                        <div>
+                            <span id="seconds">0</span>
+                            <small>Sec</small>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <section class="schedule">
+
 
                     <div class="timeline">
+
+                        <div class="timeline-item">
+                            <div class="time">11:30</div>
+
+                            <div class="line">
+                                <span class="circle"></span>
+                            </div>
+
+                            <div class="content">
+                                <h3>Ceremony</h3>
+                                <p>受付</p>
+                            </div>
+                        </div>
 
                         <div class="timeline-item">
                             <div class="time">12:30</div>
@@ -136,41 +192,7 @@
                 </section>
 
 
-                <section class="countdown">
 
-                    <h2 class="section-title">Wedding Day</h2>
-
-                    <p class="count-date">January 30, 2027</p>
-
-                    <div class="days-box">
-                        <span id="days">0</span>
-                        <p>Days</p>
-                    </div>
-
-                    <div class="time-box">
-
-                        <div>
-                            <span id="hours">0</span>
-                            <small>Hours</small>
-                        </div>
-
-                        <div>
-                            <span id="minutes">0</span>
-                            <small>Min</small>
-                        </div>
-
-                        <div>
-                            <span id="seconds">0</span>
-                            <small>Sec</small>
-                        </div>
-
-                    </div>
-
-                </section>
-
-                    </div>
-
-                </section>
 
             </section>
             

@@ -1,20 +1,81 @@
+//フォトギャラリー
+const images = [
+    "images/top/gallery/photo1.jpg",
+    "images/top/gallery/photo2.jpg",
+    "images/top/gallery/photo3.jpg",
+    "images/top/gallery/photo4.jpg",
+    "images/top/gallery/photo5.jpg"
+];
+
+let current = 1;
+const leftImage = document.getElementById("leftImage");
+const centerImage = document.getElementById("centerImage");
+const rightImage = document.getElementById("rightImage");
+
+function render(){
+    const left = (current - 1 + images.length) % images.length;
+    const right = (current + 1) % images.length;
+
+    leftImage.src = images[left];
+    centerImage.src = images[current];
+    rightImage.src = images[right];
+}
+
+function next(){
+    current++;
+    if(current >= images.length){
+        current = 0;
+    }
+    render();
+}
+
+function prev(){
+    current--;
+    if(current < 0){
+        current = images.length - 1;
+    }
+    render();
+}
+render();
+
+document.getElementById("nextBtn").addEventListener("click",next);
+document.getElementById("prevBtn").addEventListener("click",prev);
+
+let startX = 0;
+const gallery = document.querySelector(".gallery-container");
+
+gallery.addEventListener("pointerdown", (e) => {
+    startX = e.clientX;
+});
+
+gallery.addEventListener("pointerup", (e) => {
+    const diff = e.clientX - startX;
+
+    if (diff > 50) {
+        prev();
+    }
+    else if (diff < -50) {
+        next();
+    }
+});
+
+
+
+
+
+//カウントダウン
 const weddingDate = new Date("2027-01-30T12:30:00");
 
 function updateCountdown(){
-
     const now = new Date();
-
     const diff = weddingDate - now;
 
     if(diff <= 0){
         return;
     }
     const days = Math.floor(diff / (1000*60*60*24));
-
     const hours = Math.floor(diff / (1000*60*60) % 24);
-
     const minutes = Math.floor(diff / (1000*60) % 60);
-
     const seconds = Math.floor(diff / 1000 % 60);
 
     document.getElementById("days").textContent = days;
@@ -47,3 +108,7 @@ function flip(id, value){
 updateCountdown();
 
 setInterval(updateCountdown,1000);
+
+
+
+
