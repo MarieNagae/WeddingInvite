@@ -1,10 +1,10 @@
 //フォトギャラリー
 const images = [
-    "images/top/gallery/photo1.jpg",
-    "images/top/gallery/photo2.jpg",
-    "images/top/gallery/photo3.jpg",
-    "images/top/gallery/photo4.jpg",
-    "images/top/gallery/photo5.jpg"
+    "/images/top/gallery/photo1.jpg",
+    "/images/top/gallery/photo2.jpg",
+    "/images/top/gallery/photo3.jpg",
+    "/images/top/gallery/photo4.jpg",
+    "/images/top/gallery/photo5.jpg"
 ];
 
 let current = 1;
@@ -42,24 +42,54 @@ document.getElementById("nextBtn").addEventListener("click",next);
 document.getElementById("prevBtn").addEventListener("click",prev);
 
 let startX = 0;
+let currentX = 0;
+let dragging = false;
+
 const gallery = document.querySelector(".gallery-container");
 
-gallery.addEventListener("pointerdown", (e) => {
+function startDrag(x) {
+
+    dragging = true;
     startX = e.clientX;
-});
 
-gallery.addEventListener("pointerup", (e) => {
-    const diff = e.clientX - startX;
+    gallery.setPointerCapture(e.pointerId);
 
-    if (diff > 50) {
-        prev();
-    }
-    else if (diff < -50) {
+}
+
+function moveDrag(x){
+
+    if (!dragging) return;
+
+    currentX = e.clientX - startX;
+
+    gallery.style.transform = `translateX(${currentX}px)`;
+
+}
+
+function endDrag() {
+
+    if (!dragging) return;
+
+    dragging = false;
+
+    if (currentX < -80) {
         next();
     }
-});
+    else if (currentX > 80) {
+        prev();
+    }
 
+    gallery.style.transform = "";
 
+}
+
+gallery.addEventListener("pointerdown", startDrag);
+gallery.addEventListener("pointermove", moveDrag);
+gallery.addEventListener("pointerup", endDrag);
+
+gallery.addEventListener("touchstart", startDragTouch);
+gallery.addEventListener("touchmove", moveDragTouch);
+gallery.addEventListener("touchend", endDragTouch);
 
 
 

@@ -148,6 +148,12 @@ body{
     overflow:hidden;
 }
 
+.gallery-container img{
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+}
+
 .gallery-side{
     width:90px;
     height:140px;
@@ -173,11 +179,6 @@ body{
     cursor:pointer;
 }
 
-.gallery-container img{
-    user-select: none;
-    -webkit-user-select: none;
-    -webkit-user-drag: none;
-}
 
 
 /*ボタン*/
