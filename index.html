@@ -14,6 +14,27 @@
     </head>
 
     <body>
+        <!-- ハンバーガーボタン -->
+        <button id="menuBtn" class="menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- 背景 -->
+        <div id="menuOverlay" class="menu-overlay"></div>
+
+        <!-- スライドメニュー -->
+        <nav id="sideMenu" class="side-menu">
+            <a href="#">Home</a>
+            <a href="#profile">Profile</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#schedule">Schedule</a>
+            <a href="rsvp.html">RSVP</a>
+            <a href="access.html">Access</a>
+            <a href="facility.html">Facility</a>
+        </nav>
+
         <!--左サイド-->
         <aside class="side left"></aside>
 
@@ -74,12 +95,93 @@
             </section>
             
             <!--Our Story-->
-            <section class="section">
-                <h2 class="section-title">Our Story</h2>
+            <section class="section" id="profile">
+                <h2 class="section-title">Profile</h2>
+
+                <div class="profile-card">
+                    <img src="images/top/groom.png" class="profile-image">
+                    <h3 class="profile-title">Groom</h3>
+
+                    <table class="profile-table">
+                        <tr>
+                            <th>名前</th>
+                            <td>稲井 琢真</td>
+                        </tr>
+
+                        <tr>
+                            <th>出身</th>
+                            <td>愛知県</td>
+                        </tr>
+
+                        <tr>
+                            <th>仕事</th>
+                            <td>システムエンジニア</td>
+                        </tr>
+
+                        <tr>
+                            <th>趣味</th>
+                            <td>ドライブ・ゲーム</td>
+                        </tr>
+
+                        <tr>
+                            <th>好きなもの</th>
+                            <td>焼肉・旅行</td>
+                        </tr>
+
+                        <tr>
+                            <th>ひとこと</th>
+                            <td>皆さまとお会いできることを楽しみにしています。</td>
+                        </tr>
+
+                    </table>
+
+                </div>
+
+                <div class="profile-card">
+
+                    <img src="images/top/bride.png" class="profile-image">
+                    <h3 class="profile-title">Bride</h3>
+
+                    <table class="profile-table">
+
+                        <tr>
+                            <th>名前</th>
+                            <td>永江 茉理恵</td>
+                        </tr>
+
+                        <tr>
+                            <th>出身</th>
+                            <td>大阪府</td>
+                        </tr>
+
+                        <tr>
+                            <th>仕事</th>
+                            <td>システムエンジニア</td>
+                        </tr>
+
+                        <tr>
+                            <th>趣味</th>
+                            <td>カフェ巡り・PG</td>
+                        </tr>
+
+                        <tr>
+                            <th>好きなもの</th>
+                            <td>猫・お寿司・肉・ミルクティ</td>
+                        </tr>
+
+                        <tr>
+                            <th>ひとこと</th>
+                            <td>皆さまと素敵な時間を過ごせることを楽しみにしています。</td>
+                        </tr>
+
+                    </table>
+
+                </div>
+
             </section>
             
             <!--Photo Gallery-->
-            <section class="gallery">
+            <section class="gallery" id="gallery">
                 <h2 class="section-title">Photo Gallery</h2>
                 <div class="gallery-wrapper">
                     <button id="prevBtn" class="gallery-btn">&#10094;</button>
@@ -94,14 +196,15 @@
 
             
             <!--スケジュール-->
-            <section class="section">
-
+            <section class="section" id="schedule">
+                
                 <section class="countdown">
 
-                    <h2 class="section-title">Schedule</h2>
+                <div class="profile-card">
+                    
+                    <h2 class="section-title">Countdown</h2>
                     <!--h2 class="section-title">Wedding Day</h2-->
 
-                    <p class="count-date">January 30, 2027</p>
 
                     <div class="days-box">
                         <span id="days">0</span>
@@ -126,13 +229,28 @@
                         </div>
 
                     </div>
+                </div>
 
                 </section>
 
 
                 <section class="schedule">
+                    
+                    <div class="profile-card">
+                        <h2 class="section-title">Infomation</h2>
+
+                        <p class="time-box">日時　　：2027年01月30日</p>
+                        <p class="time-box">場所　　：ノートルダム神戸</p>
+                        <p class="time-box">ＨＰ　　：こちら</p>
+                        <p class="time-box">アクセス：はこちら</p>
+                        <p class="count-date">アクセスはこちら</p>
+                    </div>
 
 
+                    
+                    <div class="profile-card">
+                        
+                    <h2 class="section-title">TimeLine</h2>
                     <div class="timeline">
 
                         <div class="timeline-item">
@@ -188,12 +306,9 @@
                         </div>
 
                     </div>
+                    </div>
 
                 </section>
-
-
-
-
             </section>
             
             <!--各種ボタン-->

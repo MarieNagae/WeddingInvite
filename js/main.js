@@ -1,3 +1,32 @@
+const menuBtn = document.getElementById("menuBtn");
+const sideMenu = document.getElementById("sideMenu");
+const overlay = document.getElementById("menuOverlay");
+
+menuBtn.addEventListener("click", () => {
+
+    menuBtn.classList.toggle("active");
+    sideMenu.classList.toggle("show");
+    overlay.classList.toggle("show");
+
+});
+
+overlay.addEventListener("click", closeMenu);
+
+document.querySelectorAll(".side-menu a").forEach(link=>{
+
+    link.addEventListener("click", closeMenu);
+
+});
+
+function closeMenu(){
+
+    menuBtn.classList.remove("active");
+    sideMenu.classList.remove("show");
+    overlay.classList.remove("show");
+
+}
+
+
 //フォトギャラリー
 const images = [
     "/images/top/gallery/photo1.jpg",

@@ -28,6 +28,110 @@ body{
     padding: 80px 30px;
 }
 
+/*==========================
+ ハンバーガー
+==========================*/
+
+.menu-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    width:48px;
+    height:48px;
+    border:none;
+    border-radius:50%;
+    background:rgba(255,255,255,.75);
+    backdrop-filter:blur(10px);
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+    cursor:pointer;
+    z-index:1001;
+}
+
+.menu-btn span{
+    display:block;
+    width:22px;
+    height:2px;
+    background:#b89a68;
+    margin:5px auto;
+    transition:.35s;
+}
+
+/* × */
+
+.menu-btn.active span:nth-child(1){
+    transform:translateY(7px) rotate(45deg);
+}
+
+.menu-btn.active span:nth-child(2){
+    opacity:0;
+}
+
+.menu-btn.active span:nth-child(3){
+    transform:translateY(-7px) rotate(-45deg);
+}
+
+/*==========================
+ オーバーレイ
+==========================*/
+
+.menu-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.3);
+    opacity:0;
+    visibility:hidden;
+    transition:.35s;
+    z-index:998;
+}
+
+.menu-overlay.show{
+    opacity:1;
+    visibility:visible;
+}
+
+/*==========================
+ メニュー
+==========================*/
+
+.side-menu{
+    position:fixed;
+    top:0;
+    right:-280px;
+
+    width:250px;
+    height:100vh;
+
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(18px);
+
+    padding-top:90px;
+
+    transition:.4s;
+
+    z-index:999;
+
+    box-shadow:-10px 0 30px rgba(0,0,0,.08);
+}
+
+.side-menu.show{
+    right:0;
+}
+
+.side-menu a{
+    display:block;
+    padding:18px 35px;
+    color:#666;
+    text-decoration:none;
+    font-size:18px;
+    transition:.25s;
+}
+
+.side-menu a:hover{
+    background:#f8f3ea;
+    color:#b89a68;
+}
+
+
 
 /*Top画面　画像*/
 .hero {
@@ -123,9 +227,59 @@ body{
 }
 
 .message-text{
-    font-size: 17px;
+    font-size: 15px;
     line-height: 2.2;
     color: #555;
+}
+
+
+/* ===== Our Story ===== */
+
+.profile-card{
+    margin:50px 0;
+    padding:30px 20px;
+    background:#fffdf9;
+    border-radius:20px;
+    border:1px solid #efe6d8;
+    text-align:center;
+}
+
+.profile-image{
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-bottom:20px;
+}
+
+.profile-title{
+    font-family:"Great Vibes", cursive;
+    font-size:42px;
+    color:#b89a68;
+    font-weight:normal;
+    margin-bottom:25px;
+}
+
+.profile-table{
+    width:100%;
+    border-collapse:collapse;
+    text-align:left;
+}
+
+.profile-table tr{
+    border-bottom:1px solid #eee;
+}
+
+.profile-table th,
+.profile-table td{
+    padding:14px 8px;
+    vertical-align:top;
+}
+
+.profile-table th{
+    width:90px;
+    color:#b89a68;
+    font-weight:600;
 }
 
 /*フォトギャラリー*/
@@ -146,12 +300,6 @@ body{
     justify-content:center;
     gap:15px;
     overflow:hidden;
-}
-
-.gallery-container img{
-    user-select: none;
-    -webkit-user-select: none;
-    -webkit-user-drag: none;
 }
 
 .gallery-side{
@@ -178,7 +326,6 @@ body{
     border-radius:50%;
     cursor:pointer;
 }
-
 
 
 /*ボタン*/
