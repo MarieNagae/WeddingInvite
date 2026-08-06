@@ -87,6 +87,7 @@
                     <input
                         type="text"
                         id="postalCode"
+                        name="postalCode"
                         placeholder="650-0046"
                         >
 
@@ -135,8 +136,6 @@
                         <input type="text" placeholder="めい" id="compFirstNameKana" name="compFirstNameKana" maxlength="20" data-rules="kanaOnly,trim" >
                     </div>
                     
-                    <label>同伴者アレルギー</label>
-                    <textarea rows="3" id="compAllergy" name="compAllergy" maxlength="200" data-rules="removeControlChars" ></textarea>
 
                     <label class="checkbox">
                         <input type="checkbox" id="compAddressSame" name="compAddressSame">
@@ -149,6 +148,7 @@
                             <input
                                 type="text"
                                 id="compPostalCode"
+                                name="compPostalCode"
                                 placeholder="650-0024"
                                 >
 
@@ -162,23 +162,26 @@
                         <input
                             type="text"
                             id="compAddress"
-                            name="address"
+                            name="compAddress"
                             placeholder="住所">
 
                         <label>住所（番地以降）</label>
                         <input
                             type="text"
                             id="compBuilding"
-                            name="building"
+                            name="compBuilding"
                             placeholder="建物名">
                     </div>
+
+                    <label>同伴者アレルギー</label>
+                    <textarea rows="3" id="compAllergy" name="compAllergy" maxlength="200" data-rules="removeControlChars" ></textarea>
                 </div>
 
                 <label>備考</label>
                 <textarea rows="5" id="others" name="others" maxlength="500" data-rules="removeControlChars" ></textarea>
 
                 <label>メッセージ</label>
-                <textarea rows="5" name="Message"></textarea>
+                <textarea rows="5" name="Message" placeholder="新郎新婦へ一言！"></textarea>
 
                 
                 <button type="submit" id="submitButton" class="submit-btn">

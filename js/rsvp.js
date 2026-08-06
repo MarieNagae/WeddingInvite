@@ -10,6 +10,40 @@ const backLinkBottom = document.getElementById("backLinkBottom");
 const compAddressSame = document.getElementById("compAddressSame");
 const compAddressArea = document.getElementById("compAddressArea");
 
+const savedData = JSON.parse(sessionStorage.getItem("rsvpData"));
+
+if (savedData) {
+    restoreForm(savedData);
+}
+//データ復元
+function restoreForm(data) {
+
+    for (const [key, value] of Object.entries(data)) {
+
+        const element = document.querySelector(`[name="${key}"]`);
+
+        if (!element) continue;
+
+        if (element.type === "radio") {
+            const radio = document.querySelector(
+                `[name="${key}"][value="${value}"]`
+            );
+            if (radio) radio.checked = true;
+        }
+        else if (element.type === "checkbox") {
+            element.checked = value === "on";
+        }
+        else {
+            element.value = value;
+        }
+    }
+
+    // 同伴者欄の表示状態も復元
+    companionArea.style.display =
+        companionCheck.checked ? "block" : "none";
+}
+
+
 //同伴チェックボタン押下
 companionCheck.addEventListener("change", ()=>{
     companionArea.style.display = companionCheck.checked ? "block" : "none";
@@ -22,6 +56,24 @@ compAddressSame.addEventListener("change", ()=>{
 });
 
 
+
+
+//回答ボタン押下
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const formData = Object.fromEntries(new FormData(form));
+
+    // 一時保存
+    sessionStorage.setItem("rsvpData", JSON.stringify(formData));
+
+    // 確認画面へ
+    window.location.href = "confirm.html";
+});
+
+
+
+
+/*
 //回答ボタン押下
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -55,7 +107,7 @@ form.addEventListener("submit", async (e) => {
         submitButton.textContent = "回答する";
     }
 });
-
+*/
 //戻るボタン押下
 backLinkTop.addEventListener("click", (e) => {
     // 確認ダイアログ
@@ -130,12 +182,12 @@ async function searchAddress(postalCode, address){
 const rules = {
     digitsOnly: value => value.replace(/\D/g, ""),
     removeControlChars: value => value.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, ""),
-    kanaOnly: value => value.replace(/[^\u3041-\u3096ー]/g, ""),
+    kanaOnly: value => value.replace(/[^\u3040-\u309Fー]/g, ""),
     nameOnly: value => value.replace(/[^\p{sc=Han}\p{sc=Hiragana}\p{sc=Katakana}\s　ー・]/gu,""),
     email: value => value.trim().replace(/\u3000/g, ""),
     trim: value => value.trim()
 };
-
+/*
 function setInputRestriction(element, ruleKeys, maxLength) {
     element.addEventListener("input", () => {
         let value = element.value;
@@ -151,6 +203,40 @@ function setInputRestriction(element, ruleKeys, maxLength) {
         element.value = value;
     });
 }
+*/
+function setInputRestriction(element, ruleKeys, maxLength) {
+
+    let isComposing = false;
+
+    element.addEventListener("compositionstart", () => {
+        isComposing = true;
+    });
+
+    element.addEventListener("compositionend", () => {
+        isComposing = false;
+        sanitize();
+    });
+
+    element.addEventListener("input", () => {
+        if (isComposing) return;
+        sanitize();
+    });
+
+    function sanitize() {
+        let value = element.value;
+
+        for (const key of ruleKeys) {
+            value = rules[key](value);
+        }
+
+        if (maxLength) {
+            value = value.slice(0, maxLength);
+        }
+
+        element.value = value;
+    }
+}
+
 
 document.querySelectorAll("[data-rules]").forEach(element => {
     const ruleKeys = element.dataset.rules

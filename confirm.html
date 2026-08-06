@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/confirm.css">
+
+    <!--フォント-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <title>Confirmation</title>
+</head>
+
+<body>
+
+<section class="confirm">
+
+    <h2>Confirmation</h2>
+
+    <p class="description">
+        入力内容をご確認ください。
+    </p>
+
+    <div class="confirm-item">
+        <label>お名前</label>
+        <div class="row">
+            <p data-field="lastName"></p>
+            <p data-field="firstName"></p>
+        </div>
+    </div>
+
+    <div class="confirm-item">
+        <label>ふりがな</label>
+        
+        <div class="row">
+            <p data-field="lastNameKana"></p>
+            <p data-field="firstNameKana"></p>
+        </div>
+    </div>
+
+    <div class="confirm-item">
+        <label>電話番号</label>
+        <p data-field="tell"></p>
+    </div>
+
+    <div class="confirm-item">
+        <label>メールアドレス</label>
+        <p data-field="mail"></p>
+    </div>
+
+    <div class="confirm-item">
+        <label>ご出欠</label>
+        <p data-field="attendance"></p>
+    </div>
+
+    <div class="confirm-item">
+        <label>新郎側・新婦側</label>
+        <p data-field="side"></p>
+    </div>
+
+    <div class="confirm-item">
+        <label>続柄</label>
+        <p data-field="relation"></p>
+    </div>
+
+    <div class="confirm-item">
+        <label>住所</label>
+        <p data-field="postalCode"></p>
+        <p data-field="address"></p>
+        <p data-field="building"></p>
+    </div>
+
+    <div class="confirm-item">
+        <label>アレルギー</label>
+        <p data-field="allergy"></p>
+    </div>
+
+    <div id="confirmCompanion" class="companion-card">
+        <h3>👥 同伴者様情報</h3>
+
+        <div class="confirm-item">
+            <label>お名前</label>
+            
+            <div class="row">
+                <p data-field="compLastName"></p>
+                <p data-field="compFirstName"></p>
+            </div>
+        </div>
+
+            
+        <div class="confirm-item">
+            <label>ふりがな</label>
+            <div class="row">
+                <p data-field="compLastNameKana"></p>
+                <p data-field="compFirstNameKana"></p>
+            </div>
+        </div>
+
+        <div class="confirm-item">
+            <label>住所</label>
+            <p data-field="compPostalCode"></p>
+            <p data-field="compAddress"></p>
+            <p data-field="compBuilding"></p>
+        </div>
+
+        <div class="confirm-item">
+            <label>アレルギー</label>
+            <p data-field="compAllergy"></p>
+        </div>
+    </div>
+
+    <div class="confirm-item">
+        <label>備考</label>
+        <p data-field="others"></p>
+    </div>
+
+    <div class="confirm-item">
+        <label>メッセージ</label>
+        <p data-field="Message"></p>
+    </div>
+
+    <div class="button-area">
+        <button id="backButton" class="back-btn">
+            修正する
+        </button>
+
+        <button id="sendButton" class="submit-btn">
+            回答を送信
+        </button>
+    </div>
+
+</section>
+
+<script type="module" src="js/confirm.js"></script>
+
+</body>
+</html>

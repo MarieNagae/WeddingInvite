@@ -1,0 +1,47 @@
+.confirm{
+    max-width:430px;
+    margin:auto;
+    padding:24px;
+}
+
+.confirm-item{
+    margin-bottom:20px;
+}
+
+.confirm-item label{
+    font-weight:bold;
+    display:block;
+    margin-bottom:6px;
+}
+
+.confirm-item p{
+    margin:0;
+    padding:12px;
+    background:#fafafa;
+    border-radius:8px;
+    min-height:20px;
+    white-space:pre-wrap;
+}
+
+.button-area{
+    display:flex;
+    gap:12px;
+    margin-top:32px;
+}
+
+.back-btn{
+    flex:1;
+}
+
+.submit-btn{
+    flex:2;
+}
+
+.row{
+    display: flex;
+    gap: 12px;
+}
+
+.row p{
+    flex: 1;
+}
