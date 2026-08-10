@@ -13,8 +13,12 @@ const panoramaWrapper =
 
 const messages = [
     {
-        id: "messageStory",
+        id: "messageStory1",
         trigger: 5
+    },
+    {
+        id: "messageStory2",
+        trigger: 6
     },
     {
         id: "messageDate",
@@ -26,7 +30,7 @@ const messages = [
     },
     {
         id: "messageVenue",
-        trigger: 40
+        trigger: 30
     }
 ];
 
