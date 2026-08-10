@@ -1,0 +1,523 @@
+/* ====================
+   リセット
+==================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+
+body {
+
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "Noto Serif JP", serif;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f7f4ef 0%,
+            #efe6da 100%
+        );
+}
+
+
+/* ====================
+   シーン
+==================== */
+
+.scene {
+
+    position: relative;
+
+    width: 100%;
+    max-width: 430px;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* ====================
+   封筒
+==================== */
+
+.envelope {
+
+    position: relative;
+
+    width: 340px;
+    height: 220px;
+
+    perspective: 1000px;
+
+    animation:
+        envelopeFloat
+        4s
+        ease-in-out
+        infinite;
+}
+
+
+/* ====================
+   封筒 背面
+==================== */
+
+.envelope-back {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f2e8dc,
+            #e8dacb
+        );
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 20px 45px
+        rgba(70, 50, 35, .16);
+
+    z-index: 1;
+}
+
+
+/* ====================
+   左右・下フラップ共通
+==================== */
+
+.flap {
+
+    position: absolute;
+
+    inset: 0;
+
+}
+
+
+/* ====================
+   左フラップ
+==================== */
+
+.left-flap {
+
+    background:
+        linear-gradient(
+            135deg,
+            #f6ece2,
+            #eadbcb
+        );
+
+    clip-path:
+        polygon(
+            0 0,
+            50% 50%,
+            0 100%
+        );
+
+    z-index: 3;
+}
+
+
+/* ====================
+   右フラップ
+==================== */
+
+.right-flap {
+
+    background:
+        linear-gradient(
+            225deg,
+            #f0e4d8,
+            #e5d5c5
+        );
+
+    clip-path:
+        polygon(
+            100% 0,
+            50% 50%,
+            100% 100%
+        );
+
+    z-index: 3;
+}
+
+
+/* ====================
+   下フラップ
+==================== */
+
+.bottom-flap {
+
+    background:
+        linear-gradient(
+            180deg,
+            #e8d7c4,
+            #dfcdb9
+        );
+
+    clip-path:
+        polygon(
+            0 100%,
+            0 40%,
+            50% 75%,
+            100% 40%,
+            100% 100%
+        );
+
+    z-index: 4;
+}
+
+
+/* ====================
+   上フタ
+==================== */
+
+.top-flap {
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    transform-origin: top center;
+    transform-style: preserve-3d;
+
+    transition:
+        transform 1.2s
+        cubic-bezier(.22, .61, .36, 1);
+
+    z-index: 6;
+}
+
+
+/* フタの表面 */
+
+.top-flap-inner {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            #faf1e7 0%,
+            #ecddcd 100%
+        );
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            50% 100%
+        );
+
+    border-radius: 10px 10px 0 0;
+    backface-visibility: hidden;
+}
+
+
+/* ====================
+   フタが開いた状態
+==================== */
+
+.envelope.open .top-flap {
+    transform:
+        rotateX(180deg);
+}
+
+
+/* ====================
+   手紙を隠すマスク
+==================== */
+
+.letter-mask {
+    position: absolute;
+    left: 25px;
+    top: 15px;
+    width: 290px;
+    height: 190px;
+    overflow: hidden;
+    z-index: 2;
+    pointer-events: none;
+}
+/* ====================
+   手紙を封筒の外へ出せる状態
+==================== */
+
+.envelope.letter-out .letter-mask {
+    overflow: visible;
+    z-index: 7;
+}
+
+
+/* ====================
+   手紙
+==================== */
+
+.letter {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 360px;
+    padding: 35px 28px;
+    background:
+        linear-gradient(
+            180deg,
+            #fffefa,
+            #faf7f1
+        );
+    border-radius: 5px;
+    box-shadow:
+        0 8px 25px
+        rgba(60, 45, 30, .12);
+    transform:
+        translateY(170px);
+    transition:
+        transform 1.5s
+        cubic-bezier(.22, .61, .36, 1);
+}
+
+
+/* ====================
+   手紙が出る
+==================== */
+
+.envelope.open .letter {
+    transform:
+        translateY(-170px);
+}
+
+
+/* ====================
+   手紙の文字
+==================== */
+
+.letter-to {
+    margin-bottom: 35px;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+
+.letter-text {
+    font-size: 14px;
+    line-height: 2.2;
+    letter-spacing: 1px;
+}
+
+
+.letter-from {
+    margin-top: 35px;
+    text-align: right;
+    font-family: "Great Vibes", cursive;
+    font-size: 22px;
+}
+
+
+/* ====================
+   シーリングスタンプ
+==================== */
+
+.seal {
+    position: absolute;
+    left: 50%;
+    top: 91px;
+    width: 46px;
+    height: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transform:
+        translateX(-50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #c85a64,
+            #9d2e3c 65%,
+            #76202d
+        );
+
+    box-shadow:
+        0 5px 12px
+        rgba(70, 25, 30, .25);
+
+    color: #f8e9df;
+
+    font-size: 18px;
+
+    z-index: 10;
+
+    transition:
+        transform .5s ease,
+        opacity .5s ease;
+}
+
+
+.seal span {
+    font-family: serif;
+    font-weight: bold;
+}
+
+
+/* ====================
+   スタンプが消える
+==================== */
+
+.envelope.open .seal {
+
+    transform:
+        translateX(-50%)
+        scale(.5);
+
+    opacity: 0;
+
+}
+
+
+/* ====================
+   Tap to Open
+==================== */
+
+.tap-text {
+
+    position: absolute;
+
+    bottom: 60px;
+
+    width: 100%;
+
+    text-align: center;
+
+    color: #8b7b6d;
+
+    font-size: 13px;
+
+    letter-spacing: 3px;
+
+    animation:
+        tapBlink
+        2s
+        ease-in-out
+        infinite;
+
+    transition:
+        opacity .5s ease;
+}
+
+
+.envelope.open + .tap-text {
+
+    opacity: 0;
+
+}
+
+
+/* ====================
+   封筒の浮遊
+==================== */
+
+@keyframes envelopeFloat {
+
+    0% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-7px);
+    }
+
+    100% {
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* ====================
+   Tap 点滅
+==================== */
+
+@keyframes tapBlink {
+
+    0% {
+        opacity: .35;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: .35;
+    }
+
+}
+
+
+/* ====================
+   スマホ
+==================== */
+
+@media (max-width: 380px) {
+
+    .envelope {
+
+        width: 300px;
+        height: 194px;
+
+    }
+
+    .top-flap {
+
+        height: 105px;
+
+    }
+
+    .letter-mask {
+
+        left: 22px;
+        top: 13px;
+
+        width: 256px;
+        height: 167px;
+
+    }
+
+    
+    .letter {
+
+        height: 320px;
+
+        padding: 28px 24px;
+
+    }
+
+}

@@ -1,0 +1,220 @@
+/* =========================
+   KOBE PANORAMA
+========================= */
+
+/*.kobe-panorama {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: #000;
+}*/
+
+.kobe-panorama {
+    width: 100%;
+    height: 100dvh;
+    overflow: hidden;
+}
+
+
+/* =========================
+   横スクロールエリア
+========================= */
+
+.panorama-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
+}
+
+.panorama-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* =========================
+   写真全体
+========================= */
+
+.panorama-content {
+    position: relative;
+    height: 100vh;
+    width: max-content;
+}
+
+
+/* =========================
+   パノラマ写真
+========================= */
+
+.panorama-content img {
+    display: block;
+    height: 100vh;
+    width: auto;
+    max-width: none;
+    object-fit: contain;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+
+/* =========================
+   写真の上の文字
+========================= */
+
+.panorama-text {
+    position: absolute;
+    /*
+     * 写真の中央付近
+     */
+    top: 20%;
+    left: 3%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    width: 100%;
+    text-align: center;
+    color: white;
+    text-shadow:
+        0 2px 12px rgba(0, 0, 0, 0.45);
+    pointer-events: none;
+}
+
+.panorama-text p {
+    margin: 0;
+    font-family: "Great Vibes", cursive;
+    font-size: 52px;
+    letter-spacing: 4px;
+}
+
+.panorama-text span {
+    display: block;
+    margin-top: 8px;
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+
+/* =========================
+   スワイプ案内
+========================= */
+
+.panorama-guide {
+    position: absolute;
+    left: 0;
+    bottom: 30px;
+    width: 100%;
+    z-index: 10;
+    margin: 0;
+    text-align: center;
+    color: white;
+    font-size: 10px;
+    letter-spacing: 2px;
+    pointer-events: none;
+    text-shadow:
+        0 1px 8px rgba(0, 0, 0, 0.6);
+}
+
+
+
+
+/* =========================
+   手書きメッセージ
+========================= */
+
+.panorama-message {
+    position: absolute;
+
+    top: 35%;
+    left: 16%;
+    z-index: 5;
+    width: 500px;
+    color: white;
+    font-family: "Klee One", cursive;
+    font-size: 22px;
+    line-height: 2;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+}
+
+
+/*
+ * 1文字ずつ
+ */
+
+.panorama-message span {
+    display: inline-block;
+
+    opacity: 0;
+
+    transform:
+        translateY(4px)
+        rotate(-3deg);
+
+    /*
+     * 最初は少し隠しておく
+     */
+    clip-path: inset(0 100% 0 0);
+}
+
+
+/*
+ * 書いている途中
+ */
+
+.panorama-message span.writing {
+    animation: handwriting 0.18s ease-out forwards;
+}
+
+
+/* =========================
+   書くアニメーション
+========================= */
+
+@keyframes handwriting {
+
+    0% {
+        opacity: 0;
+
+        clip-path: inset(0 100% 0 0);
+
+        transform:
+            translateY(4px)
+            rotate(-3deg);
+    }
+
+    60% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+
+        clip-path: inset(0 0 0 0);
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+}
+
+
+.message-date {
+    top: 15%;
+    left: 30%;
+}
+
+.message-time {
+    top: 25%;
+    left: 30%;
+}
+
+.message-venue {
+    top: 45%;
+    left: 40%;
+}
