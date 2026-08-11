@@ -31,7 +31,7 @@ envelope.addEventListener("click", () => {
 
         scene.classList.add("opened");
 
-    }, 1000);
+    }, 1200);
 
 
     // 封筒を完全に消す

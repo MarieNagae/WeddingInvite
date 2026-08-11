@@ -9,6 +9,8 @@ export default defineConfig({
         pLetter: "/prototype/letter/index_letter.html",
         pPanorama: "/prototype/panorama/index_panorama.html",
         pSlide: "/prototype/slide/index_slide.html",
+        pPage: "/prototype/page/index_page.html",
+        pPage2: "/prototype/page2/index_page.html",
         rsvp: "rsvp.html",
         confirm: "confirm.html",
         complete: "rsvpComplete.html",
