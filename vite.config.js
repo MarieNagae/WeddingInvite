@@ -11,6 +11,7 @@ export default defineConfig({
         pSlide: "/prototype/slide/index_slide.html",
         pPage: "/prototype/page/index_page.html",
         pPage2: "/prototype/page2/index_page.html",
+        pWatch: "/prototype/watch/index_watch.html",
         rsvp: "rsvp.html",
         confirm: "confirm.html",
         complete: "rsvpComplete.html",
