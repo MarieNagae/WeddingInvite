@@ -10,11 +10,24 @@ body {
     height: 100%;
 }
 
+/*body {
+    background: #111;
+    color: #fff;
+    font-family: "Noto Serif JP", serif;
+    overflow: hidden;
+}*/
+
 body {
     background: #111;
     color: #fff;
     font-family: "Noto Serif JP", serif;
     overflow: hidden;
+
+    transition: background 0.5s ease;
+}
+
+body.white-out {
+    background: #fff;
 }
 
 #screen {
@@ -39,11 +52,17 @@ body {
         );
 
     overflow: hidden;
+
+    transition: background 0.5s ease;
 }
 
 /* 文章 */
-
 #message {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
     width: 90%;
 
     text-align: center;
@@ -55,21 +74,40 @@ body {
 
     opacity: 0;
 
+    transform: translate(-50%, -50%);
+
     transition:
         opacity 1.5s ease,
         transform 1.5s ease;
 
-    transform: translateY(10px);
-
     white-space: pre-line;
+
+    z-index: 5;
 }
 
 #message.show {
     opacity: 1;
-    transform: translateY(0);
+
+    transform: translate(-50%, -50%);
+}
+/* =========================
+   写真モード
+========================= */
+
+#screen.photo-mode #message {
+    top: auto;
+    bottom: 12%;
+
+    transform: translate(-50%, 20px);
 }
 
-/* 画面全体をタップできるようにする */
+#screen.photo-mode #message.show {
+    transform: translate(-50%, 0);
+}
+
+/* =========================
+   画面全体をタップできるようにする
+========================= */
 
 #touchArea {
     position: absolute;
@@ -84,38 +122,69 @@ body {
 }
 
 
-/* 写真エリア */
+/* =========================
+   写真エリア
+========================= */
+
 #photoArea {
     position: absolute;
 
-    top: 20%;
-    left: 50%;
+    top: 15%;
+    left: 0;
+    right: 0;
 
     width: 80%;
     max-width: 360px;
 
+    margin: 0 auto;
+
     opacity: 0;
 
-    transform: translate(-50%, 20px) scale(0.95);
+    transform: translateY(20px) scale(0.95);
 
     transition:
         opacity 2s ease,
         transform 2s ease;
 
     pointer-events: none;
+
+    z-index: 3;
 }
 
 #photoArea.show {
     opacity: 1;
 
-    transform: translate(-50%, 0) scale(1);
+    transform: translateY(0) scale(1);
 }
 
 #photo {
     display: block;
-
     width: 100%;
     height: auto;
-
     border-radius: 4px;
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+#photo.fade-out {
+    opacity: 0;
+}
+
+
+/* =========================
+   画面切り替え
+========================= */
+
+#screen.white-out {
+    background: #fff;
+}
+
+#screen.white-out #photoArea {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+#screen.white-out #message {
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }
