@@ -20,7 +20,7 @@ sendButton.addEventListener("click", async () => {
 
         await addDoc(collection(db, "rsvp"), {
             ...data,
-            updateAt: new Date()
+            updateAt: new Date().toLocaleString("ja-JP")
         });
 
         // 一時データ削除

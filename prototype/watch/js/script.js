@@ -68,7 +68,7 @@ window.addEventListener("load", () => {
 
     setTimeout(async() => {
         showMessage("誰か来た……？");
-        step = 3;
+        step = 1;
         await wait(800);
             
         // ★ クリック有効化
@@ -137,7 +137,7 @@ touchArea.addEventListener("click", async() => {
 
     // 「少しだけ、私の話を聞いてくれる？」の後
     if (step === 3) {
-        step = 8;
+        step = 4;
 
         showMessage("ありがとう.");
         await wait(1500);
@@ -163,7 +163,7 @@ touchArea.addEventListener("click", async() => {
 
         showMessage("まだ、この先に何があるかなんて\n知らなかった。");
         await wait(2500);
-        changePhoto("images/top/wedding.jpg");
+        changePhoto("/images/top/wedding.jpg");
         await wait(1500);
         showMessage("でも……");
         await wait(2000);
@@ -182,7 +182,7 @@ touchArea.addEventListener("click", async() => {
         await wait(2500);
         showMessage("ここまで来られたのは、\n私たちだけじゃない。");
         await wait(3000);
-        changePhoto("images/top/kobe-panorama.jpg");
+        changePhoto("/images/top/kobe-panorama.jpg");
         await wait(1500);
         showMessage("あなたがいてくれたから。");
         await wait(3000);

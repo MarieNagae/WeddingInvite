@@ -4,7 +4,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/style.css">
-        
+        <link rel="stylesheet" href="css/gallery.css">
+
         <!--フォント用-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -180,20 +181,118 @@
                 </div>
 
             </section>
-            
-            <!--Photo Gallery-->
+            <!-- =========================
+                Photo Gallery
+            ========================= -->
             <section class="gallery" id="gallery">
-                <h2 class="section-title">Photo Gallery</h2>
-                <div class="gallery-wrapper">
-                    <button id="prevBtn" class="gallery-btn">&#10094;</button>
-                    <div class="gallery-container">
-                        <img id="leftImage" class="gallery-side">
-                        <img id="centerImage" class="gallery-center">
-                        <img id="rightImage" class="gallery-side">
-                    </div>
-                    <button id="nextBtn" class="gallery-btn">&#10095;</button>
+
+                <div class="gallery-header">
+                    <p class="gallery-subtitle">OUR MEMORIES</p>
+                    <h2>GALLERY</h2>
+                    <span class="gallery-line"></span>
                 </div>
+
+
+                <!-- Gallery本体 -->
+                <div class="gallery-container">
+
+                    <!-- 前へ -->
+                    <button
+                        class="gallery-arrow gallery-prev"
+                        type="button"
+                        aria-label="前の写真">
+                        ←
+                    </button>
+
+
+                    <!-- 写真表示エリア -->
+                    <div class="gallery-viewport">
+
+                        <div class="gallery-track">
+
+                            <div class="gallery-item">
+                                <img
+                                    src="images/top/gallery/photo1.jpg"
+                                    alt="Gallery Photo 1"
+                                    draggable="false">
+                            </div>
+
+                            <div class="gallery-item">
+                                <img
+                                    src="images/top/gallery/photo2.jpg"
+                                    alt="Gallery Photo 2"
+                                    draggable="false">
+                            </div>
+
+                            <div class="gallery-item">
+                                <img
+                                    src="images/top/gallery/photo3.jpg"
+                                    alt="Gallery Photo 3"
+                                    draggable="false">
+                            </div>
+
+                            <div class="gallery-item">
+                                <img
+                                    src="images/top/gallery/photo4.jpg"
+                                    alt="Gallery Photo 4"
+                                    draggable="false">
+                            </div>
+
+                            <div class="gallery-item">
+                                <img
+                                    src="images/top/gallery/photo5.jpg"
+                                    alt="Gallery Photo 5"
+                                    draggable="false">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- 次へ -->
+                    <button
+                        class="gallery-arrow gallery-next"
+                        type="button"
+                        aria-label="次の写真">
+                        →
+                    </button>
+
+                </div>
+
+
+                <!-- ページ番号 -->
+                <div class="gallery-counter">
+                    <span id="galleryCurrent">01</span>
+                    <span class="gallery-counter-line"></span>
+                    <span id="galleryTotal">05</span>
+                </div>
+
             </section>
+
+
+            <!-- =========================
+                拡大表示
+            ========================= -->
+            <div
+                class="gallery-lightbox"
+                aria-hidden="true">
+
+                <button
+                    class="gallery-lightbox-close"
+                    type="button"
+                    aria-label="閉じる">
+                    ×
+                </button>
+
+                <div class="gallery-lightbox-image">
+                    <img src="" alt="">
+                </div>
+
+            </div>
+
+
+
 
             
             <!--スケジュール-->
@@ -348,4 +447,5 @@
     
     <!--JS-->
     <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/gallery.js"></script>
 </html>

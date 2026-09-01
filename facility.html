@@ -25,7 +25,7 @@
 
     <div class="content">
 
-        <div class="card">
+        <div class="card"  onclick="openFacility('cloak')">
             <div class="icon">🧥</div>
             <div>
                 <h2>クローク</h2>
@@ -33,7 +33,7 @@
             </div>
         </div>
 
-        <div class="card">
+        <div class="card" onclick="openFacility('smoking')">
             <div class="icon">🚬</div>
             <div>
                 <h2>喫煙所</h2>
@@ -41,7 +41,7 @@
             </div>
         </div>
 
-        <div class="card">
+        <div class="card" onclick="openFacility('baby')">
             <div class="icon">👶</div>
             <div>
                 <h2>授乳室・おむつ替え</h2>
@@ -49,7 +49,7 @@
             </div>
         </div>
 
-        <div class="card">
+        <div class="card" onclick="openFacility('barrier')">
             <div class="icon">♿</div>
             <div>
                 <h2>バリアフリー</h2>
@@ -57,7 +57,7 @@
             </div>
         </div>
 
-        <div class="card">
+        <div class="card" onclick="openFacility('parking')">
             <div class="icon">🚗</div>
             <div>
                 <h2>駐車場</h2>
@@ -73,6 +73,19 @@
     </div>
 
 </div>
+
+
+<div id="facilityModal" class="facility-modal">
+    <div class="modal-overlay" onclick="closeFacility()"></div>
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeFacility()">×</button>
+        <div id="modalIcon" class="modal-icon"></div>
+        <h2 id="modalTitle"></h2>
+        <p id="modalText"></p>
+    </div>
+</div>
+<script src="js/facility.js"></script>
+
 
 </body>
 </html>

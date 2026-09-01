@@ -1,0 +1,345 @@
+/* ========================================
+   Gallery
+======================================== */
+
+.gallery {
+    width: 100%;
+    padding: 70px 0 60px;
+    overflow: hidden;
+    background: #fff;
+}
+
+
+/* ========================================
+   Header
+======================================== */
+
+.gallery-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.gallery-subtitle {
+    margin: 0 0 8px;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: #b89b5e;
+}
+
+.gallery-header h2 {
+    margin: 0;
+    font-family: "Great Vibes", cursive;
+    font-size: 38px;
+    font-weight: 400;
+    color: #333;
+}
+
+.gallery-line {
+    display: block;
+    width: 35px;
+    height: 1px;
+    margin: 12px auto 0;
+    background: #c7aa68;
+}
+
+
+/* ========================================
+   Gallery Container
+======================================== */
+
+.gallery-container {
+    position: relative;
+    width: 100%;
+}
+
+
+/* ========================================
+   Viewport
+======================================== */
+
+.gallery-viewport {
+    width: 100%;
+    overflow: hidden;
+
+    /*
+     * 縦方向のスクロールは許可。
+     * 横方向はGallery側で処理する。
+     */
+    touch-action: pan-y;
+
+    cursor: grab;
+}
+
+.gallery-viewport.dragging {
+    cursor: grabbing;
+}
+
+
+/* ========================================
+   Track
+======================================== */
+
+.gallery-track {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    /*
+     * JSからtransformを変更する
+     */
+    will-change: transform;
+}
+
+
+/* ========================================
+   Photo
+======================================== */
+
+.gallery-item {
+    /*
+     * 画面の約72%をメインサイズにする
+     */
+    flex: 0 0 72%;
+
+    aspect-ratio: 3 / 4;
+
+    overflow: hidden;
+
+    position: relative;
+
+    /*
+     * 左右の写真
+     */
+    transform: scale(0.82);
+    opacity: 0.45;
+
+    transition:
+        transform 0.35s ease,
+        opacity 0.35s ease;
+
+    cursor: pointer;
+
+    user-select: none;
+}
+
+
+/* ========================================
+   Center Photo
+======================================== */
+
+.gallery-item.active {
+    transform: scale(1);
+    opacity: 1;
+}
+
+
+/* ========================================
+   Image
+======================================== */
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+
+/* ========================================
+   Arrow Button
+======================================== */
+
+.gallery-arrow {
+    position: absolute;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    z-index: 20;
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: 1px solid rgba(184, 155, 94, 0.75);
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.92);
+
+    color: #a98b4e;
+
+    font-size: 17px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.gallery-prev {
+    left: 8px;
+}
+
+.gallery-next {
+    right: 8px;
+}
+
+.gallery-arrow:active {
+    transform:
+        translateY(-50%)
+        scale(0.9);
+}
+
+
+/* ========================================
+   Counter
+======================================== */
+
+.gallery-counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-top: 22px;
+
+    font-family: "Times New Roman", serif;
+    font-size: 11px;
+
+    letter-spacing: 0.1em;
+
+    color: #a98b4e;
+}
+
+.gallery-counter-line {
+    width: 30px;
+    height: 1px;
+
+    background: #c7aa68;
+}
+
+
+/* ========================================
+   Lightbox
+======================================== */
+
+.gallery-lightbox {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.35s ease,
+        visibility 0.35s ease;
+}
+
+.gallery-lightbox.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* ========================================
+   Lightbox Image
+======================================== */
+
+.gallery-lightbox-image {
+    width: min(88vw, 400px);
+    max-height: 85vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transform: scale(0.85);
+
+    opacity: 0;
+
+    transition:
+        transform 0.4s cubic-bezier(.2, .8, .2, 1),
+        opacity 0.3s ease;
+}
+
+.gallery-lightbox.open .gallery-lightbox-image {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.gallery-lightbox-image img {
+    display: block;
+
+    width: 100%;
+    max-height: 85vh;
+
+    object-fit: contain;
+}
+
+
+/* ========================================
+   Close Button
+======================================== */
+
+.gallery-lightbox-close {
+    position: absolute;
+
+    top: 20px;
+    right: 20px;
+
+    width: 40px;
+    height: 40px;
+
+    border: 1px solid #c7aa68;
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.9);
+
+    color: #a98b4e;
+
+    font-size: 25px;
+    font-weight: 300;
+
+    cursor: pointer;
+}
+
+
+/* ========================================
+   PC
+======================================== */
+
+@media (min-width: 700px) {
+
+    .gallery {
+        padding-top: 100px;
+    }
+
+    .gallery-item {
+        flex-basis: 420px;
+    }
+
+}

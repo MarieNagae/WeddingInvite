@@ -295,51 +295,6 @@ body{
     font-weight:600;
 }
 
-/*フォトギャラリー*/
-.gallery{
-    padding:80px 20px;
-    background:#fff;
-}
-
-.gallery-wrapper{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.gallery-container{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:15px;
-    overflow:hidden;
-}
-
-.gallery-side{
-    width:90px;
-    height:140px;
-    object-fit:cover;
-    border-radius:15px;
-    opacity:.6;
-}
-
-.gallery-center{
-    width:170px;
-    height:250px;
-    object-fit:cover;
-    border-radius:20px;
-    box-shadow:0 10px 30px rgba(0,0,0,.2);
-}
-
-.gallery-btn{
-    width:40px;
-    height:40px;
-    margin:0 10px;
-    border:none;
-    border-radius:50%;
-    cursor:pointer;
-}
-
 
 /*ボタン*/
 .menu{
