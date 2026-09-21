@@ -33,23 +33,38 @@ const facilityData = {
 };
 
 
-function openFacility(type) {
+// 施設カード
+document.querySelectorAll(".card[data-facility]").forEach(card => {
 
-    const facility = facilityData[type];
+    card.addEventListener("click", () => {
 
-    if (!facility) return;
+        const type = card.dataset.facility;
+        const facility = facilityData[type];
 
-    document.getElementById("modalIcon").textContent = facility.icon;
-    document.getElementById("modalTitle").textContent = facility.title;
-    document.getElementById("modalText").textContent = facility.text;
+        if (!facility) return;
 
-    document.getElementById("facilityModal").classList.add("show");
+        document.getElementById("modalIcon").textContent = facility.icon;
+        document.getElementById("modalTitle").textContent = facility.title;
+        document.getElementById("modalText").textContent = facility.text;
 
-}
+        document.getElementById("facilityModal").classList.add("show");
+
+    });
+
+});
 
 
+// モーダルを閉じる
 function closeFacility() {
 
     document.getElementById("facilityModal").classList.remove("show");
 
 }
+
+
+// ×ボタン
+document.querySelector(".modal-close").addEventListener("click", closeFacility);
+
+
+// 背景タップ
+document.querySelector(".modal-overlay").addEventListener("click", closeFacility);

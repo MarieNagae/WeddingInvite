@@ -1,0 +1,470 @@
+* {
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   HTML / BODY
+======================================== */
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+
+    background: #111;
+}
+
+
+body {
+    font-family: "Noto Serif JP", serif;
+}
+
+
+/* ========================================
+   スライダー
+======================================== */
+
+#slider {
+    position: relative;
+
+    width: 100%;
+    height: 100dvh;
+
+    overflow: hidden;
+
+    touch-action: pan-y;
+}
+
+
+/* ========================================
+   ページ
+======================================== */
+
+.page {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-size: cover;
+    background-position: center;
+
+    transform: translateX(100%);
+
+    transition:
+        transform 0.75s cubic-bezier(0.65, 0, 0.35, 1);
+
+    overflow: hidden;
+}
+
+
+/* ========================================
+   現在のページ
+======================================== */
+
+.page.active {
+    transform: translateX(0);
+}
+
+
+/* ========================================
+   前のページ
+======================================== */
+
+.page.prev {
+    transform: translateX(-100%);
+}
+
+
+/* ========================================
+   文字
+======================================== */
+
+.page-text {
+    position: absolute;
+
+    margin: 0;
+
+    pointer-events: none;
+
+    white-space: pre-line;
+}
+
+
+/* ========================================
+   1文字単位
+======================================== */
+
+.char {
+    display: inline-block;
+
+    opacity: 0;
+
+    transform: translateY(15px);
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
+}
+
+
+/* ========================================
+   段落 / ブロック単位
+======================================== */
+
+.paragraph {
+    display: inline-block;
+
+    opacity: 0;
+
+    transform: translateY(15px);
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
+}
+
+
+/* ========================================
+   アニメーション
+======================================== */
+
+
+/* ----------------------------------------
+   fade
+---------------------------------------- */
+
+.animation-fade .char,
+.animation-fade .paragraph {
+    transform: none;
+}
+
+
+/* ----------------------------------------
+   fadeUp
+---------------------------------------- */
+
+.animation-fadeUp .char,
+.animation-fadeUp .paragraph {
+    transform: translateY(15px);
+}
+
+
+/* ----------------------------------------
+   fadeDown
+---------------------------------------- */
+
+.animation-fadeDown .char,
+.animation-fadeDown .paragraph {
+    transform: translateY(-15px);
+}
+
+
+/* ----------------------------------------
+   slideLeft
+---------------------------------------- */
+
+.animation-slideLeft .char,
+.animation-slideLeft .paragraph {
+    transform: translateX(20px);
+}
+
+
+/* ----------------------------------------
+   slideRight
+---------------------------------------- */
+
+.animation-slideRight .char,
+.animation-slideRight .paragraph {
+    transform: translateX(-20px);
+}
+
+
+/* ----------------------------------------
+   scale
+---------------------------------------- */
+
+.animation-scale .char,
+.animation-scale .paragraph {
+    transform: scale(0.8);
+}
+
+
+/* ----------------------------------------
+   blur
+---------------------------------------- */
+
+.animation-blur .char,
+.animation-blur .paragraph {
+    filter: blur(8px);
+}
+
+
+/* ========================================
+   アニメーション開始
+======================================== */
+
+.page.active .page-text.show .char,
+.page.active .page-text.show .paragraph {
+
+    opacity: 1;
+
+    transform:
+        translate(0, 0)
+        scale(1);
+
+    filter: blur(0);
+}
+
+
+/* ========================================
+   ボタン
+======================================== */
+
+.page-button {
+    position: absolute;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 180px;
+
+    padding: 14px 24px;
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    color: white;
+
+    text-decoration: none;
+
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    background: rgba(0, 0, 0, 0.15);
+
+    backdrop-filter: blur(5px);
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.page-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+
+    transform: translateY(-2px);
+}
+
+
+/* ========================================
+   ページナビゲーション
+======================================== */
+
+#pageCounter {
+    position: fixed;
+    left: 50%;
+    bottom: 24px;
+    transform: translateX(-50%);
+    z-index: 1000;
+
+    width: min(80vw, 520px);
+
+    color: white;
+    font-family: Arial, sans-serif;
+
+    opacity: 0.85;
+
+    text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+
+    pointer-events: auto;
+}
+
+#pageNumbers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+/* ページ番号 */
+.page-number {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    font-size: 9px;
+    letter-spacing: 1px;
+
+    opacity: 0.45;
+
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s ease;
+}
+
+/* 現在ページ */
+.page-number.active {
+    opacity: 1;
+    transform: scale(1.25);
+}
+
+/* 番号 */
+.page-number-label {
+    display: block;
+    min-width: 18px;
+    text-align: center;
+}
+
+/* ページ間のライン */
+.page-number:not(:last-child)::after {
+    content: "";
+
+    display: block;
+
+    width: clamp(12px, 3vw, 32px);
+    height: 1px;
+
+    margin: 0 clamp(4px, 1vw, 10px);
+
+    background: rgba(255,255,255,0.45);
+}
+
+
+/* ========================================
+   スマホ
+======================================== */
+
+@media (max-width: 767px) {
+
+    #pageCounter {
+        bottom: 20px;
+        width: 88vw;
+    }
+
+    .page-number {
+        font-size: 8px;
+    }
+
+    .page-number:not(:last-child)::after {
+        width: clamp(7px, 2vw, 16px);
+        margin: 0 3px;
+    }
+
+    .page-number.active {
+        transform: scale(1.2);
+    }
+}
+/* ========================================
+   PC
+======================================== */
+
+@media (min-width: 768px) {
+
+    #slider {
+        width: 100%;
+        height: 100dvh;
+    }
+
+}
+
+
+/* ========================================
+   スマホ
+======================================== */
+
+@media (max-width: 767px) {
+
+    .page-button {
+        min-width: 160px;
+
+        padding: 12px 20px;
+    }
+
+}
+
+
+/* ========================================
+   スワイプガイド
+======================================== */
+#swipeGuide {
+    position: fixed;
+
+    left: 50%;
+    bottom: 80px;
+
+    transform: translateX(-50%);
+
+    z-index: 1100;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: rgba(255, 255, 255, 0.9);
+
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+
+    pointer-events: none;
+
+    opacity: 0;
+}
+
+/* 矢印 */
+#swipeGuide span:first-child,
+#swipeGuide span:last-child {
+    font-size: 16px;
+    letter-spacing: 0;
+}
+
+
+
+/* スマホ */
+@media (max-width: 767px) {
+
+    #swipeGuide {
+        bottom: 70px;
+        font-size: 9px;
+        gap: 10px;
+    }
+
+}
+
+
+@keyframes swipeGuidePulse {
+
+    0% {
+        opacity: 0.35;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.35;
+    }
+
+}
+
+#swipeGuide.show {
+    opacity: 1;
+    animation: swipeGuidePulse 2.5s ease-in-out infinite;
+}

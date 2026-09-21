@@ -12,6 +12,7 @@ export default defineConfig({
         pPage: "/prototype/page/index_page.html",
         pPage2: "/prototype/page2/index_page.html",
         pWatch: "/prototype/watch/index_watch.html",
+        pScroll: "/prototype/scroll/index_scroll.html",
         rsvp: "rsvp.html",
         confirm: "confirm.html",
         complete: "rsvpComplete.html",

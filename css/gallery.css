@@ -230,8 +230,6 @@
 
     background: #c7aa68;
 }
-
-
 /* ========================================
    Lightbox
 ======================================== */
@@ -243,17 +241,14 @@
 
     z-index: 1000;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 25px;
-
     background: rgba(255, 255, 255, 0.96);
 
     opacity: 0;
     visibility: hidden;
 
+    /*
+     * 背景だけフェード
+     */
     transition:
         opacity 0.35s ease,
         visibility 0.35s ease;
@@ -270,34 +265,40 @@
 ======================================== */
 
 .gallery-lightbox-image {
-    width: min(88vw, 400px);
-    max-height: 85vh;
+    position: fixed;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    /*
+     * JSで位置・サイズを指定する
+     */
+    left: 0;
+    top: 0;
 
-    transform: scale(0.85);
+    width: 0;
+    height: 0;
 
-    opacity: 0;
+    overflow: hidden;
+
+    transform-origin: center center;
 
     transition:
-        transform 0.4s cubic-bezier(.2, .8, .2, 1),
-        opacity 0.3s ease;
+        left 0.45s cubic-bezier(.2, .8, .2, 1),
+        top 0.45s cubic-bezier(.2, .8, .2, 1),
+        width 0.45s cubic-bezier(.2, .8, .2, 1),
+        height 0.45s cubic-bezier(.2, .8, .2, 1);
 }
 
-.gallery-lightbox.open .gallery-lightbox-image {
-    transform: scale(1);
-    opacity: 1;
-}
+
+/* 写真 */
 
 .gallery-lightbox-image img {
+    width: 100%;
+    height: 100%;
+
     display: block;
 
-    width: 100%;
-    max-height: 85vh;
+    object-fit: cover;
 
-    object-fit: contain;
+    user-select: none;
 }
 
 
@@ -306,10 +307,12 @@
 ======================================== */
 
 .gallery-lightbox-close {
-    position: absolute;
+    position: fixed;
 
     top: 20px;
-    right: 20px;
+    left: 20px;
+
+    z-index: 10;
 
     width: 40px;
     height: 40px;
@@ -325,8 +328,18 @@
     font-weight: 300;
 
     cursor: pointer;
+
+    opacity: 0;
+
+    transition:
+        opacity 0.3s ease;
 }
 
+.gallery-lightbox.open .gallery-lightbox-close {
+    opacity: 1;
+
+    transition-delay: 0.2s;
+}
 
 /* ========================================
    PC
