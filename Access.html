@@ -3,130 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Access</title>
 
+    <link rel="stylesheet" href="css/infoContents.css">
     <link rel="stylesheet" href="css/access.css">
+    <link rel="stylesheet" href="css/modal.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-    <link rel="icon" href="/images/favicon.png">
-    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-
 </head>
-
 <body>
 
 <div class="container">
+
     <div class="hero">
-        <img src="images/access/hero.jpg" alt="Notre Dame KOBE">
-        <div class="hero-overlay">
+        <img src="images/access/hero.jpg" alt="Access">
+        <div class="overlay">
             <h1>Access</h1>
-            <p class="subtitle">会場へのご案内</p>
         </div>
     </div>
 
+    <div class="content">
 
-    <!-- 会場 -->
-    <div class="card">
+        <div class="card"  data-access="address">
+            <div class="icon">🌎</div>
+            <div>
+                <h2>ノートルダム神戸</h2>
+                <p>〒650-0042<br>兵庫県神戸市中央区波止場町7-3</p>
+            </div>
+        </div>
 
-        <h2>Notre Dame KOBE</h2>
+   
+        <!-- MAP -->
+        <div class="card map-card">
 
-        <p>
-            〒650-0042<br>
-            兵庫県神戸市中央区波止場町7-3
-        </p>
+            <iframe
+                src="https://www.google.com/maps?q=ノートルダム神戸&output=embed"
+                title="ノートルダム神戸の地図"
+                loading="lazy">
+            </iframe>
+
+            <a class="button"
+            href="https://www.google.com/maps/search/?api=1&query=ノートルダム神戸"
+            target="_blank"
+            rel="noopener noreferrer">
+
+                <i class="fa-solid fa-location-dot"></i>
+                Google Mapで開く
+
+            </a>
+
+        </div>
+
+        <div class="card" data-access="train">
+            <div class="icon">🚄</div>
+            <div>
+                <h2>電車でお越しの方</h2>
+                <p>JR三ノ宮駅より徒歩約15分<br></p>
+                <p>阪急花隈駅より徒歩約5分<br></p>
+            </div>
+        </div>
+
+        <div class="card" data-access="bus">
+            <div class="icon">🚌</div>
+            <div>
+                <h2>無料シャトルバス</h2>
+                <p>新神戸駅・神戸三ノ宮駅より無料のシャトルバスが発車しております。</p>
+            </div>
+        </div>
+
+
+        <div class="card" data-access="car">
+            <div class="icon">🚗</div>
+            <div>
+                <h2>お車でお越しの方</h2>
+                <p>駐車場をご利用いただけます。</p>
+            </div>
+        </div>
+
+        <div class="card" data-access="infomation">
+            <div class="icon">ⓘ</div>
+            <div>
+                <h2>ご案内</h2>
+                <p>挙式開始15分前までにお越しいただけますと幸いです。</p>
+            </div>
+        </div>
+
 
     </div>
-
-    <!-- MAP -->
-    <div class="card">
-
-        <iframe
-            src="https://www.google.com/maps?q=ノートルダム神戸&output=embed"
-            title="ノートルダム神戸の地図"
-            loading="lazy">
-        </iframe>
-
-        <a class="button"
-           href="https://www.google.com/maps/search/?api=1&query=ノートルダム神戸"
-           target="_blank"
-           rel="noopener noreferrer">
-
-            <i class="fa-solid fa-location-dot"></i>
-            Google Mapで開く
-
-        </a>
-
-    </div>
-
-    <!-- 電車 -->
-    <div class="card">
-
-        <h3>
-            <i class="fa-solid fa-train"></i>
-            電車でお越しの方
-        </h3>
-
-        <ul>
-            <li>JR三ノ宮駅より徒歩約15分</li>
-            <li>タクシー約5分</li>
-        </ul>
-
-    </div>
-
-    <!-- 車 -->
-    <div class="card">
-
-        <h3>
-            <i class="fa-solid fa-car"></i>
-            お車でお越しの方
-        </h3>
-
-        <ul>
-            <li>駐車場をご利用いただけます。</li>
-            <li>満車の場合は近隣駐車場をご利用ください。</li>
-        </ul>
-
-    </div>
-
-    <!-- ご案内 -->
-    <div class="card">
-
-        <h3>
-            <i class="fa-solid fa-heart"></i>
-            ご案内
-        </h3>
-
-        <p>
-            挙式開始15分前までに<br>
-            ご来館いただけますと幸いです。
-        </p>
-
-    </div>
-
-    <!-- ボタン -->
-
-    <a class="routeButton"
-       href="https://www.google.com/maps/dir/?api=1&destination=ノートルダム神戸"
-       target="_blank"
-       rel="noopener noreferrer">
-
-        <i class="fa-solid fa-route"></i>
-
-        現在地からルート検索
-
-    </a>
-
-
-    
-    <a href="index.html" id="backLink" class="back-link">
+    <a href="index.html" class="back-link">
         ← 戻る
     </a>
+
+
 </div>
+
+<div id="infoModal" class="infoModal">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+        <button class="modal-close">×</button>
+
+        <div class="modal-body">
+            <div id="modalIcon" class="modal-icon"></div>
+            <h2 id="modalTitle"></h2>
+            <p id="modalText"></p>
+        </div>
+    </div>
+</div>
+<script type="module" src="js/access.js"></script>
+
 
 </body>
 </html>

@@ -34,19 +34,6 @@ const facilityData = {
             + " 気兼ねなくご利用ください。<br>"
     },
 
-    baby: {
-        icon: "👶",
-        title: "授乳室・おむつ替え",
-        text: "小さなお子様連れの方も安心してご利用いただけます。"
-    },
-
-    barrier: {
-        icon: "♿",
-        title: "バリアフリー",
-        text: "館内、全面バリアフリーとなっております。<br>"
-            + "車椅子をご利用の方も安心してご来館いただけます。"
-    },
-
     parking: {
         icon: "🚗",
         title: "駐車場",
@@ -57,6 +44,15 @@ const facilityData = {
             + "  17時以降、一部区間で交通規制が行われます。<br>"
             + "  お車でお越しの際は、ご確認ください。<br>"
     },
+
+
+    barrier: {
+        icon: "♿",
+        title: "バリアフリー",
+        text: "館内、全面バリアフリーとなっております。<br>"
+            + "車椅子をご利用の方も安心してご来館いただけます。"
+    },
+
  
     smoking: {
         icon: "🚬",
@@ -82,7 +78,7 @@ document.querySelectorAll(".card[data-facility]").forEach(card => {
         document.getElementById("modalTitle").textContent = facility.title;
         document.getElementById("modalText").innerHTML = facility.text;
 
-        document.getElementById("facilityModal").classList.add("show");
+        document.getElementById("infoModal").classList.add("show");
 
     });
 
@@ -92,7 +88,7 @@ document.querySelectorAll(".card[data-facility]").forEach(card => {
 // モーダルを閉じる
 function closeFacility() {
 
-    document.getElementById("facilityModal").classList.remove("show");
+    document.getElementById("infoModal").classList.remove("show");
 
 }
 
@@ -103,3 +99,30 @@ document.querySelector(".modal-close").addEventListener("click", closeFacility);
 
 // 背景タップ
 document.querySelector(".modal-overlay").addEventListener("click", closeFacility);
+
+function adjustBackButton() {
+
+    const backButton = document.querySelector(".back-link");
+
+    if (!backButton) return;
+
+    const viewportHeight = window.visualViewport
+        ? window.visualViewport.height
+        : window.innerHeight;
+
+    const windowHeight = window.innerHeight;
+
+    // SafariのUIによって発生する表示領域の差
+    const diff = windowHeight - viewportHeight;
+
+    // 最低限確保したい下の余白
+    const minBottom = 100;
+
+    if (diff > 0) {
+        // SafariのUIが表示されている状態
+        backButton.style.bottom = `${minBottom + diff}px`;
+    } else {
+        // SafariのUIが隠れている状態
+        backButton.style.bottom = `${minBottom}px`;
+    }
+}

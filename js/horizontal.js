@@ -25,16 +25,63 @@ const pages = [
     {
         id: "cover",
         name: "HOME<br>(ホーム)",
-        image: "/images/image1.jpg",
-        position: "center center",
+        image: "/images/TOP/Hero.jpg",
+        position: "100% center",
 
         texts: [
+            
+            {
+                text: "WEDDING",
+
+                top: "2%",
+                left: "3%",
+
+                fontFamily: "'Great Vibes', cursive",
+                fontSize: "50px",
+
+                color: "#ffffff",
+
+                letterSpacing: "4px",
+
+                animation: "fade",
+
+                delay: 300,
+
+                charDelay: 70,
+
+                textAnimation: "char"
+            },
+            
+            
+            {
+                text: "INVITATION",
+
+                top: "10%",
+                left: "3%",
+
+                fontFamily: "'Great Vibes', cursive",
+                fontSize: "50px",
+
+                color: "#ffffff",
+
+                letterSpacing: "4px",
+
+                animation: "fade",
+
+                delay: 400,
+
+                charDelay: 70,
+
+                textAnimation: "char"
+            },
+
+
 
             {
-                text: "TAKUMA & MARIE",
+                text: "TAKUMA",
 
                 // 位置
-                top: "12%",
+                top: "60%",
                 left: "10%",
 
                 // フォント
@@ -52,7 +99,7 @@ const pages = [
                 animation: "fadeUp",
 
                 // 表示開始
-                delay: 300,
+                delay: 1200,
 
                 // 1文字ごとの間隔
                 charDelay: 70,
@@ -63,36 +110,77 @@ const pages = [
 
 
             {
-                text: "WEDDING INVITATION",
+                text: "　　&",
 
-                top: "19%",
+                // 位置
+                top: "65%",
                 left: "10%",
 
-                fontFamily: "Arial, sans-serif",
-                fontSize: "11px",
+                // フォント
+                fontFamily: "'Great Vibes', cursive",
+                fontSize: "clamp(24px, 5vw, 42px)",
+                fontWeight: "400",
 
+                // 色
                 color: "#ffffff",
 
-                letterSpacing: "4px",
+                // 文字間
+                letterSpacing: "3px",
 
-                animation: "fade",
+                // アニメーション
+                animation: "fadeUp",
 
-                delay: 1200,
+                // 表示開始
+                delay: 1300,
 
-                charDelay: 40,
+                // 1文字ごとの間隔
+                charDelay: 70,
 
+                // 1文字ずつ表示
+                textAnimation: "char"
+            },
+
+            
+            {
+                text: "MARIE",
+
+                // 位置
+                top: "70%",
+                left: "13%",
+
+                // フォント
+                fontFamily: "'Great Vibes', cursive",
+                fontSize: "clamp(24px, 5vw, 42px)",
+                fontWeight: "400",
+
+                // 色
+                color: "#ffffff",
+
+                // 文字間
+                letterSpacing: "3px",
+
+                // アニメーション
+                animation: "fadeUp",
+
+                // 表示開始
+                delay: 1400,
+
+                // 1文字ごとの間隔
+                charDelay: 70,
+
+                // 1文字ずつ表示
                 textAnimation: "char"
             },
 
 
             {
-                text: "2027.01.30",
+                text: "2027/01/30",
 
-                bottom: "12%",
-                left: "10%",
+                bottom: "16%",
+                left: "7%",
 
-                fontFamily: "Arial, sans-serif",
-                fontSize: "13px",
+                fontFamily: "'Great Vibes', cursive",
+                fontSize: "22px",
 
                 color: "#ffffff",
 
@@ -100,7 +188,7 @@ const pages = [
 
                 animation: "fadeUp",
 
-                delay: 1700,
+                delay: 2000,
 
                 charDelay: 60,
 
@@ -118,21 +206,21 @@ const pages = [
     {
         id: "message",
         name: "Message<br>(メッセージ)",
-        image: "/images/image2.jpg",
-        position: "30% center",
+        image: "/images/message/message.jpg",
+        position: "0% center",
 
         texts: [
 
             {
                 text: "MESSAGE",
 
-                top: "14%",
-                left: "10%",
+                top: "2%",
+                left: "3%",
 
-                fontFamily: "Arial, sans-serif",
-                fontSize: "12px",
+                fontFamily: "'Great Vibes', cursive",
+                fontSize: "40px",
 
-                color: "#ffffff",
+                color: "#000",
 
                 letterSpacing: "4px",
 
@@ -145,17 +233,17 @@ const pages = [
 
 
             {
-                text: "大切な皆さまへ",
+                text: "謹啓　錦秋の候",
 
-                top: "25%",
+                top: "13%",
                 left: "10%",
 
-                fontFamily: "'Noto Serif JP', serif",
-                fontSize: "clamp(16px, 4vw, 22px)",
+                fontFamily: "'Great Vibes', cursive",
+                fontSize: "20px",
 
-                color: "#ffffff",
+                color: "#000",
 
-                letterSpacing: "2px",
+                letterSpacing: "4px",
 
                 animation: "fadeUp",
 
@@ -164,18 +252,27 @@ const pages = [
                 textAnimation: "paragraph"
             },
 
-
+            
             {
-                text: "私たちの新しい一日に\nぜひ立ち会ってください。",
-
-                top: "36%",
+                text: "皆様におかれましては\n"
+                    + "ご清祥のこととお慶び申し上げます\n"
+                    + "このたび　私たちは結婚式を\n"
+                    + "挙げることになりました\n"
+                    + "つきましては日頃お世話になっている\n"
+                    + "皆様にお集まりいただき\n"
+                    + "ささやかな披露宴を催したいと存じます\n"
+                    + "ご多用中　誠に恐縮ではございますが\n"
+                    + "ご来臨の栄を賜りたく\n"
+                    + "謹んでご案内申し上げます\n"
+                    + "　　謹白　　2026/10/31",
+                top: "20%",
                 left: "10%",
                 width: "80%",
 
                 fontFamily: "'Noto Serif JP', serif",
                 fontSize: "clamp(14px, 3.5vw, 19px)",
 
-                color: "#ffffff",
+                color: "#000",
 
                 letterSpacing: "2px",
                 lineHeight: "2",
@@ -185,7 +282,33 @@ const pages = [
                 delay: 1300,
 
                 textAnimation: "paragraph"
+            },
+
+            
+            {
+                text: "稲井　琢真\n永江　茉理恵",
+
+                top: "70%",
+                left: "10%",
+                width: "80%",
+
+                fontFamily: "'Noto Serif JP', serif",
+                fontSize: "clamp(14px, 3.5vw, 19px)",
+
+                color: "#000",
+
+                letterSpacing: "2px",
+                lineHeight: "2",
+
+                animation: "fadeUp",
+
+                delay: 1800,
+
+                textAnimation: "paragraph"
             }
+
+
+
 
         ]
     },
@@ -194,80 +317,77 @@ const pages = [
     // ====================================
     // 03 OUR DAYS
     // ====================================
-
     {
         id: "ourDays",
         name: "Profile<br>(プロフィール)",
-        image: "/images/image3.jpg",
-        position: "30% center",
+
+        images: [
+            {
+                src: "/images/profile/groom.jpg",
+                position: "70% 50%"
+            },
+            {
+                src: "/images/profile/bride.jpg",
+                position: "30% 30%"
+            }
+        ],
 
         texts: [
             {
-                text: "OurDays",
+                text: "PROFILE",
 
-                top: "15%",
+                top: "8%",
                 left: "10%",
 
                 fontFamily: "Arial, sans-serif",
                 fontSize: "12px",
 
                 color: "#ffffff",
-
                 letterSpacing: "4px",
 
                 animation: "fadeUp",
-
                 delay: 300,
 
                 textAnimation: "paragraph"
             },
 
-
             {
                 text: "TAKUMA",
 
-                top: "30%",
+                top: "28%",
                 left: "10%",
 
                 fontFamily: "Arial, sans-serif",
                 fontSize: "clamp(24px, 6vw, 42px)",
 
                 color: "#ffffff",
-
                 letterSpacing: "4px",
 
                 animation: "slideLeft",
-
                 delay: 800,
 
                 textAnimation: "paragraph"
             },
 
-
             {
                 text: "MARIE",
 
-                top: "42%",
+                top: "78%",
                 left: "10%",
 
                 fontFamily: "Arial, sans-serif",
                 fontSize: "clamp(24px, 6vw, 42px)",
 
                 color: "#ffffff",
-
                 letterSpacing: "4px",
 
                 animation: "slideLeft",
-
                 delay: 1200,
 
                 textAnimation: "paragraph"
             }
-
         ]
     },
-
-
     // ====================================
     // 04 THE DAY
     // ====================================
@@ -275,8 +395,8 @@ const pages = [
     {
         id: "theDay",
         name: "The Day<br>(伝えたいこと)",
-        image: "/images/image4.jpg",
-        position: "30% center",
+        image: "/images/date/date.jpg",
+        position: "40% center",
         countdown: true,
 
         texts: [
@@ -419,8 +539,8 @@ const pages = [
     {
         id: "invitation",
         name: "Invitation<br>(出欠確認)",
-        image: "/images/image5.jpg",
-        position: "30% center",
+        image: "/images/rsvp/rsvp.jpg",
+        position: "50% center",
 
         texts: [
 
@@ -466,7 +586,7 @@ const pages = [
     {
         id: "access",
         name: "Access<br>(アクセス)",
-        image: "/images/image6.jpg",
+        image: "/images/access/merikenPark.jpg",
         position: "30% center",
 
         texts: [
@@ -513,8 +633,8 @@ const pages = [
     {
         id: "facility",
         name: "Facility<br>(施設案内)",
-        image: "/images/image7.jpg",
-        position: "30% center",
+        image: "/images/facility/facility.jpg",
+        position: "35% center",
 
         texts: [
 
@@ -560,8 +680,8 @@ const pages = [
     {
         id: "thankyou",
         name: "And Then",
-        image: "/images/image8.jpg",
-        position: "30% center",
+        image: "/images/ThankYou/ThankYou.jpg",
+        position: "45% center",
 
         texts: [
 
@@ -630,6 +750,9 @@ const menuList = document.getElementById("menuList");
 const menuClose = document.getElementById("menuClose");
 const pageCounter = document.getElementById("pageCounter");
 
+const edgeArrowLeft = document.querySelector(".edge-arrow-left");
+const edgeArrowRight = document.querySelector(".edge-arrow-right");
+
 const weddingDate = new Date("2027-01-30T12:30:00+09:00");
 
 let currentIndex = 0;
@@ -652,8 +775,30 @@ function createPages() {
         // -------------------------------
         // 背景画像
         // -------------------------------
-        page.style.backgroundImage = `url("${pageData.image}")`;
-        page.style.backgroundPosition = pageData.position || "center center";
+        if (pageData.images) {
+
+            // 複数画像
+            pageData.images.forEach((imageData, index) => {
+
+                const image = document.createElement("div");
+                image.classList.add("page-image");
+
+                image.style.backgroundImage = `url("${imageData.src}")`;
+                image.style.backgroundPosition =
+                    imageData.position || "center center";
+
+                image.style.top = `${index * 50}%`;
+
+                page.appendChild(image);
+            });
+
+        } else {
+
+            // 今まで通り1枚
+            page.style.backgroundImage = `url("${pageData.image}")`;
+            page.style.backgroundPosition =
+                pageData.position || "center center";
+        }
 
 
         // -------------------------------
@@ -926,6 +1071,10 @@ function showPage(index, animate = true) {
         }, delay);
 
     });
+
+    //矢印＜＞表示
+    edgeArrowLeft.style.display = currentIndex === 0 ? "none" : "";
+    edgeArrowRight.style.display = currentIndex === pages.length - 1 ? "none" : "";
 
 
     // ====================================

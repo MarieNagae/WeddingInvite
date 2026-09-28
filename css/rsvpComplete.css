@@ -1,39 +1,42 @@
 body{
     margin:0;
-    font-family: "Yu Gothic", sans-serif;
+    font-family:"Yu Gothic", sans-serif;
     background:#faf8f5;
     color:#555;
 }
-
 .complete{
     max-width:600px;
-    margin:auto;
     min-height:100vh;
+    margin:auto;
 
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
 
-    padding:40px;
+    padding:30px;
+    box-sizing:border-box;
+
     text-align:center;
+
+    transform:translateY(-30px);
 }
 
 .complete h1{
     font-family:"Great Vibes", cursive;
     font-size:4rem;
     color:#d8b46a;
-    margin-bottom:10px;
+    margin:0 0 10px;
 }
 
 .complete h2{
     font-size:1.8rem;
-    margin-bottom:30px;
+    margin:0 0 30px;
 }
 
 .complete p{
     line-height:2;
-    margin-bottom:50px;
+    margin:0 0 40px;
     color:#777;
 }
 

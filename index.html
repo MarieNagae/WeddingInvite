@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"-->
 
     <title>Wedding Invitation</title>
 
     <link rel="stylesheet" href="css/horizontal.css">
-    <link rel="icon" href="/images/favicon.png">
-    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="/images/favicon.png">
 
 </head>
 
@@ -17,9 +15,16 @@
 
     <main id="slider"></main>
     <div id="swipeGuide">
-        <span>←</span>
-        <span>SWIPE</span>
-        <span>→</span>
+        <!-- 中央のSWIPEガイド -->
+        <div class="swipe-guide-center">
+            <span>←</span>
+            <span>SWIPE</span>
+            <span>→</span>
+        </div>
+
+        <!-- 画面両端の矢印 -->
+        <span class="edge-arrow edge-arrow-left">‹</span>
+        <span class="edge-arrow edge-arrow-right">›</span>
     </div>
 
 
